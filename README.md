@@ -35,18 +35,6 @@
 ### Database
 - **MongoDB**: Store sensor data, user profiles, and historical trends.
 
-### IoT Integration
-- **ESP8266** & **Arduino Nano**: IoT devices for data collection and automation.
-
-### Deployment
-- **Render**: Hosting the full-stack application.
-
----
-
-## 🌐 Live Demo
-
-Check out the live deployment: [Smart Farming on Render](https://your-deployment-url.render.com)
-
 ---
 
 ## 🖥️ Installation and Setup
@@ -155,9 +143,4 @@ MERN-IoT-Agriculture/
 - **User Roles**: Role-based access for admin and farmer accounts.
 - **Data Export**: Enable CSV export of historical data for offline analysis.
 
-## 📬 Contact
-For questions or contributions, reach out:
 
-**Ayush Kumar**: [[GitHub Profile](https://github.com/ayushchahat)](#)
-
-**Happy Farming with Smart Agro! 🌾
