@@ -1,0 +1,187 @@
+.manual-automation {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(to bottom, #e8f5e9, #ffffff);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow-light); 
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Title Styling */
+h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color); /* Consistent primary color */
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 20px;
+  font-style: italic;
+  padding: 0 10px;
+}
+
+.pump-control {
+  margin: 20px 0;
+}
+
+.pump-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 150px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 35px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+}
+
+.pump-toggle.on {
+  background-color: #4caf50;
+  transform: scale(1.1);
+}
+
+.pump-toggle.off {
+  background-color: #f44336;
+  transform: scale(1.1);
+}
+
+.pump-toggle:hover {
+  opacity: 0.8;
+}
+
+.pump-status {
+  font-size: 1.1rem;
+  color: #333;
+  margin-top: 10px;
+}
+
+.set-timer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.set-timer input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  transition: border 0.3s ease-in-out;
+  width: 100%;
+  max-width: 250px;
+  margin-bottom: 10px;
+}
+
+
+.set-timer button:hover {
+  background-color: #0056b3;
+}
+
+
+.additional-info,
+.how-it-works {
+  background-color: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  text-align: left;
+  transform: translateY(10px);
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.additional-info h2,
+.how-it-works h2 {
+  color: #0d47a1;
+}
+
+.additional-info p,
+.how-it-works ol {
+  color: #333;
+  line-height: 1.6;
+}
+
+.how-it-works ol {
+  margin-left: 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .manual-automation {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .pump-toggle {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .set-timer input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .set-timer button {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .additional-info,
+  .how-it-works {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .set-timer input,
+  .set-timer button {
+    font-size: 0.9rem;
+  }
+
+  .manual-automation {
+    padding: 10px;
+  }
+
+  .additional-info,
+  .how-it-works {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+}

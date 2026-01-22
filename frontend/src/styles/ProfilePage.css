@@ -1,0 +1,94 @@
+.profile-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow-light);
+}
+
+/* Profile Content */
+.profile-content {
+  width: 100%;
+}
+
+/* Profile Card */
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: var(--box-shadow-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.profile-info {
+  text-align: center;
+}
+
+/* Account Settings */
+.account-settings {
+  margin-top: 20px;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.update-button, .delete-button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.update-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Quick Links Section */
+.quick-links {
+  margin-top: 30px;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.quick-links h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.quick-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.quick-links li {
+  margin-bottom: 10px;
+}
+
+.quick-links a {
+  text-decoration: none;
+  color: #4CAF50;
+  font-size: 1.2em;
+}
+
+.quick-links a:hover {
+  text-decoration: underline;
+}

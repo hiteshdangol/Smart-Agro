@@ -1,0 +1,564 @@
+/* CropRecommendation.css */
+
+.crop-recommendation-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #16a34a;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tab-button {
+  padding: 12px 24px;
+  font-weight: 500;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.tab-button:hover {
+  color: #16a34a;
+}
+
+.tab-button.active {
+  color: #16a34a;
+  border-bottom-color: #16a34a;
+}
+
+.tab-button:disabled {
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Form Container */
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 1024px) {
+  .form-container {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* Form Section */
+.form-section {
+  background-color: #f9fafb;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 24px;
+}
+
+.parameter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Input Groups */
+.input-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-label {
+  display: block;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.input-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.input-control:focus {
+  outline: none;
+  border-color: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+}
+
+.input-hint {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: #16a34a;
+  color: white;
+  flex: 1;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #15803d;
+}
+
+.btn-primary:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.btn-secondary:hover {
+  background-color: #f9fafb;
+}
+
+/* Error Message */
+.error-message {
+  background-color: #fef2f2;
+  border-left: 4px solid #dc2626;
+  padding: 16px;
+  margin-top: 16px;
+  border-radius: 6px;
+  display: flex;
+  align-items: flex-start;
+  color: #b91c1c;
+}
+
+.error-icon {
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+/* Info Panel */
+.info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info-card {
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.info-how-it-works {
+  background-color: #eff6ff;
+}
+
+.info-guidelines {
+  background-color: #fffbeb;
+}
+
+.info-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.info-how-it-works .info-title {
+  color: #1e40af;
+}
+
+.info-guidelines .info-title {
+  color: #92400e;
+}
+
+.info-content {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.info-how-it-works .info-content {
+  color: #1e40af;
+}
+
+.info-guidelines .info-content {
+  color: #92400e;
+}
+
+.info-content ul {
+  margin: 12px 0;
+  padding-left: 20px;
+}
+
+.info-content li {
+  margin: 4px 0;
+}
+
+.info-content div {
+  margin: 8px 0;
+}
+
+/* Results Container */
+.results-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Main Recommendation */
+.main-recommendation {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  color: white;
+  padding: 48px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.trophy-icon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+
+.recommendation-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.crop-name {
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-bottom: 8px;
+}
+
+.confidence-score {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+/* All Recommendations */
+.all-recommendations {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.recommendation-card {
+  padding: 16px;
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  background-color: #f9fafb;
+  text-align: center;
+}
+
+.recommendation-card.best-match {
+  border-color: #16a34a;
+  background-color: #f0fdf4;
+}
+
+.crop-name-small {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.probability {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.best-match .probability {
+  color: #16a34a;
+}
+
+.best-match-label {
+  color: #16a34a;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+/* Analysis Section */
+.analysis-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 1024px) {
+  .analysis-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.analysis-card {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.analysis-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.analysis-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  background-color: #f9fafb;
+  border-radius: 6px;
+}
+
+.analysis-info {
+  flex: 1;
+}
+
+.nutrient-name {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.nutrient-range {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.analysis-result {
+  text-align: right;
+}
+
+.nutrient-value {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.status-badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Farming Recommendations */
+.farming-recommendations {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.recommendations-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .recommendations-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.recommendation-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.crop-specific-title {
+  font-weight: 600;
+  color: #16a34a;
+  margin-bottom: 12px;
+}
+
+.general-title {
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: 12px;
+}
+
+.climate-title {
+  font-weight: 600;
+  color: #ea580c;
+  margin-bottom: 12px;
+}
+
+.soil-title {
+  font-weight: 600;
+  color: #ca8a04;
+  margin-bottom: 12px;
+}
+
+.recommendation-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recommendation-item {
+  display: flex;
+  align-items: flex-start;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #374151;
+}
+
+.bullet {
+  color: #16a34a;
+  margin-right: 8px;
+  margin-top: 2px;
+  font-weight: bold;
+}
+
+.climate-considerations {
+  margin-top: 24px;
+  padding: 16px;
+  background-color: #fff7ed;
+  border-radius: 8px;
+}
+
+.climate-considerations .bullet {
+  color: #ea580c;
+}
+
+.soil-improvements {
+  margin-top: 24px;
+  padding: 16px;
+  background-color: #fffbeb;
+  border-radius: 8px;
+}
+
+.soil-improvements .bullet {
+  color: #ca8a04;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.action-buttons .btn {
+  min-width: 200px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .crop-recommendation-container {
+    padding: 16px;
+  }
+  
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  .crop-name {
+    font-size: 2rem;
+  }
+  
+  .input-group {
+    grid-template-columns: 1fr;
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .action-buttons .btn {
+    width: 100%;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .tab-navigation,
+  .action-buttons {
+    display: none;
+  }
+  
+  .crop-recommendation-container {
+    max-width: none;
+    padding: 0;
+  }
+}

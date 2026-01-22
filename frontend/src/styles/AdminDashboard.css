@@ -1,0 +1,251 @@
+/* Updated all CSS class names to start with "admin" */
+.admin-dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f2f1 0%, #ffffff 100%);
+  font-family: "Arial", sans-serif;
+}
+
+.admin-dashboard-header {
+  background-color: #4caf50;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin-site-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.admin-site-subtitle {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0 0;
+  opacity: 0.9;
+}
+
+.admin-dashboard-content {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-stats-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.admin-stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #4caf50;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.admin-stat-icon {
+  font-size: 3rem;
+  background: #e0f2f1;
+  padding: 1rem;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-stat-info h3 {
+  margin: 0;
+  color: #2e7d32;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.admin-stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #4caf50;
+  margin: 0.5rem 0 0 0;
+}
+
+.admin-management-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.admin-management-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #4caf50;
+}
+
+.admin-management-card h3 {
+  color: #2e7d32;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.admin-delete-user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-user-select {
+  padding: 0.75rem;
+  border: 2px solid #e0f2f1;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.admin-user-select:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+.admin-delete-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.admin-delete-btn:hover {
+  background-color: #d32f2f;
+  transform: translateY(-2px);
+}
+
+.admin-censor-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-censor-controls p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.admin-censor-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.admin-censor-btn:hover {
+  background-color: #388e3c;
+  transform: translateY(-2px);
+}
+
+.admin-data-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.admin-preview-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-bottom: 4px solid #4caf50;
+}
+
+.admin-preview-card h3 {
+  color: #2e7d32;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.admin-data-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.admin-data-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 3px solid #e0f2f1;
+  transition: background-color 0.3s ease;
+}
+
+.admin-data-item:hover {
+  background: #e0f2f1;
+}
+
+.admin-data-item span {
+  color: #333;
+  font-weight: 500;
+}
+
+.admin-data-item span:first-child {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-dashboard-content {
+    padding: 1rem;
+  }
+
+  .admin-stats-section,
+  .admin-management-section,
+  .admin-data-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-site-title {
+    font-size: 2rem;
+  }
+
+  .admin-stat-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .admin-delete-user-form {
+    gap: 0.75rem;
+  }
+}

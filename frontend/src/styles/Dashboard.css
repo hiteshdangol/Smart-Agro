@@ -1,0 +1,134 @@
+.dashboard-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: var(--secondary-color);
+  border-radius: 10px;
+  max-width: 1200px;
+  margin: 20px auto;
+  box-shadow: var(--box-shadow-heavy);
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.dashboard-sections section {
+  margin-bottom: 40px;
+}
+
+/* Graph Section Styling */
+.graphs-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.graph-container {
+  flex: 1 1 calc(33.333% - 20px); /* Ensures three graphs per row */
+  min-width: 300px; /* Minimum width for responsiveness */
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+
+
+.graph-container h3 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.graph-placeholder {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #dcedc8, #aed581);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2e7d32;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Crop Suggestions Section */
+.crop-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.crop-card {
+  background: #ffffff;
+  padding: 15px;
+  border: 2px solid #c8e6c9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.crop-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.crop-card h3 {
+  font-size: 1.2rem;
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.crop-card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Form Section */
+form {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #c8e6c9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+form input,
+form textarea,
+form button {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+form button:hover {
+  background-color: #388e3c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .graphs {
+    grid-template-columns: 1fr; /* Stack graphs on smaller screens */
+  }
+}
