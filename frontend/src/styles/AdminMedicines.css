@@ -1,0 +1,242 @@
+.admin-medicines-page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.admin-medicines-page h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-deeper));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.admin-medicines-page > p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.admin-medicines-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-medicines-search {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.55rem 1rem;
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  font-family: var(--font);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: var(--transition-spring);
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.admin-medicines-search:focus {
+  border-color: var(--glass-border-focus);
+  box-shadow: 0 0 0 3px var(--primary-light), var(--glass-shadow-sm);
+}
+
+.admin-medicines-table-wrapper {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow-md);
+  overflow: hidden;
+}
+
+.admin-med-type {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.admin-med-type.chemical {
+  background: rgba(52, 152, 219, 0.12);
+  color: #2980b9;
+}
+
+.admin-med-type.organic {
+  background: rgba(46, 204, 113, 0.12);
+  color: var(--primary-dark);
+}
+
+.admin-med-type.rejected {
+  background: rgba(231, 76, 60, 0.12);
+  color: #e74c3c;
+}
+
+.admin-med-actions {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.admin-action-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-spring);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  color: var(--text-secondary);
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.admin-action-btn:hover {
+  transform: scale(1.1);
+  color: var(--primary-dark);
+  box-shadow: var(--glass-shadow-md);
+}
+
+.admin-medicines-form-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.admin-medicines-form {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 700px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: var(--glass-shadow-md);
+}
+
+.admin-medicines-form h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+}
+
+.admin-medicines-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.admin-medicines-form-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.admin-medicines-form-field input,
+.admin-medicines-form-field select,
+.admin-medicines-form-field textarea {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  outline: none;
+  transition: var(--transition-spring);
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.admin-medicines-form-field input:focus,
+.admin-medicines-form-field select:focus,
+.admin-medicines-form-field textarea:focus {
+  border-color: var(--glass-border-focus);
+  box-shadow: 0 0 0 3px var(--primary-light), var(--glass-shadow-sm);
+}
+
+.admin-medicines-form-medicines {
+  margin: 1rem 0;
+}
+
+.admin-medicines-form-medicines h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.admin-medicine-entry {
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.admin-medicine-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.admin-medicine-remove {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #ef4444;
+  padding: 0 0.25rem;
+}
+
+.admin-medicine-entry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .admin-medicine-entry-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.admin-medicines-form-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  justify-content: flex-end;
+}

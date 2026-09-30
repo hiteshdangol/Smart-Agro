@@ -1,0 +1,124 @@
+<mxfile host="app.diagrams.net" modified="2026-08-01T00:00:00.000Z" agent="opencode" version="24.0.0" type="device">
+  <diagram id="er-diagram" name="ER Diagram">
+    <mxGraphModel dx="1600" dy="1150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1150" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="&lt;b&gt;ENTITY RELATIONSHIP DIAGRAM - SMART AGRO SYSTEM&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="450" y="20" width="700" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend" value="&lt;b&gt;LEGEND&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;PK  = Primary Key (underlined)&lt;br&gt;FK  = Foreign Key&lt;br&gt;UQ  = Unique&lt;br&gt;&amp;#8656;   = One (crow's foot &quot;1&quot;)&lt;br&gt;&amp;#8658;   = Many (crow's foot &quot;N&quot;)&lt;br&gt;[String] = Array&lt;br&gt;Relationships: &quot;1 : M&quot; = one-to-many" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;fontSize=11;spacing=4" vertex="1" parent="1">
+          <mxGeometry x="90" y="980" width="430" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="role" value="&lt;b&gt;ROLE&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;u&gt;_id : ObjectId (PK)&lt;/u&gt;&lt;br&gt;name : String (UQ)&lt;br&gt;description : String&lt;br&gt;permissions : [String]&lt;br&gt;isDefault : Boolean&lt;br&gt;createdAt / updatedAt : Date" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=middle;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="90" y="120" width="240" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="farmer" value="&lt;b&gt;FARMER (USER)&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;u&gt;_id : ObjectId (PK)&lt;/u&gt;&lt;br&gt;name : String (required)&lt;br&gt;email : String (UQ)&lt;br&gt;password : String (bcrypt hash)&lt;br&gt;role : String (default 'Farmer')&lt;br&gt;permissionsOverride : [String]&lt;br&gt;profilePicture : String&lt;br&gt;isBlocked : Boolean&lt;br&gt;farmName : String&lt;br&gt;location : String&lt;br&gt;verificationStatus : String&lt;br&gt;createdAt / updatedAt : Date" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=middle;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="90" y="420" width="240" height="270" as="geometry" />
+        </mxCell>
+
+        <mxCell id="record" value="&lt;b&gt;RECORD&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;u&gt;_id : ObjectId (PK)&lt;/u&gt;&lt;br&gt;&lt;i&gt;farmerId : ObjectId (FK -&amp;gt; Farmer)&lt;/i&gt;&lt;br&gt;type : String (crop / disease / recommendation)&lt;br&gt;crop : String&lt;br&gt;cultivationDate : Date&lt;br&gt;quantity : Number&lt;br&gt;description : String&lt;br&gt;diseaseName / diseaseCause / diseaseCure&lt;br&gt;confidence : Number&lt;br&gt;top3 : [{label, probability}]&lt;br&gt;imageBase64 : String&lt;br&gt;medicines : [medicineSub]&lt;br&gt;purchasedProducts : [{productId, ...}]&lt;br&gt;soilParams : {N, P, K, ph}&lt;br&gt;climateParams : {temp, humidity, rainfall}&lt;br&gt;recommendedCrop : String&lt;br&gt;recommendationConfidence : Number&lt;br&gt;createdAt / updatedAt : Date" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=middle;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="620" y="90" width="310" height="360" as="geometry" />
+        </mxCell>
+
+        <mxCell id="medicine" value="&lt;b&gt;MEDICINE&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;u&gt;_id : ObjectId (PK)&lt;/u&gt;&lt;br&gt;diseaseName : String (UQ)&lt;br&gt;medicines : [{type, productName,&lt;br&gt;&amp;nbsp;&amp;nbsp;description, applicationInstructions,&lt;br&gt;&amp;nbsp;&amp;nbsp;suggestedProductNames}]&lt;br&gt;createdAt / updatedAt : Date" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=middle;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="620" y="640" width="310" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="pestAlert" value="&lt;b&gt;PEST_ALERT&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;u&gt;_id : ObjectId (PK)&lt;/u&gt;&lt;br&gt;type : String&lt;br&gt;crop : String&lt;br&gt;severity : String&lt;br&gt;description : String&lt;br&gt;location : GeoJSON Point (2dsphere)&lt;br&gt;createdAt : Date" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=middle;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="620" y="860" width="310" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="product" value="&lt;b&gt;PRODUCT&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;u&gt;_id : ObjectId (PK)&lt;/u&gt;&lt;br&gt;name : String&lt;br&gt;description : String&lt;br&gt;price : Number&lt;br&gt;category : String (enum: Pesticide /&lt;br&gt;&amp;nbsp;&amp;nbsp;Fertilizer / Tool / Seed / Other)&lt;br&gt;stock : Number&lt;br&gt;&lt;i&gt;seller : ObjectId (FK -&amp;gt; Farmer)&lt;/i&gt;&lt;br&gt;approvalStatus : String (pending/approved/rejected)&lt;br&gt;createdAt / updatedAt : Date" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=middle;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1160" y="90" width="270" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="order" value="&lt;b&gt;ORDER&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;u&gt;_id : ObjectId (PK)&lt;/u&gt;&lt;br&gt;&lt;i&gt;buyer : ObjectId (FK -&amp;gt; Farmer)&lt;/i&gt;&lt;br&gt;items : [OrderItem]&lt;br&gt;totalAmount : Number&lt;br&gt;shippingAddress : {fullName, address,&lt;br&gt;&amp;nbsp;&amp;nbsp;city, phone}&lt;br&gt;status : String (pending/confirmed/shipped/&lt;br&gt;&amp;nbsp;&amp;nbsp;delivered/cancelled)&lt;br&gt;paymentMethod : String (cod / esewa)&lt;br&gt;paymentStatus : String (unpaid/paid/failed)&lt;br&gt;transactionId : String&lt;br&gt;createdAt / updatedAt : Date" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=middle;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1160" y="420" width="270" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="orderItem" value="&lt;b&gt;ORDER_ITEM (embedded)&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;i&gt;product : ObjectId (FK -&amp;gt; Product)&lt;/i&gt;&lt;br&gt;name : String&lt;br&gt;price : Number&lt;br&gt;quantity : Number" style="dashed=1;dashPattern=8 4;rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=middle;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1160" y="760" width="270" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_role_farmer" style="edgeStyle=entityRelationEdgeStyle;rounded=0;html=1;startArrow=ERone;endArrow=ERmany;fontSize=12" edge="1" parent="1" source="role" target="farmer">
+          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry x="-10" y="-10" as="offset" />
+        </mxCell>
+        <mxCell id="l_role_farmer" value="assigns  1 : M" style="edgeLabel;html=1;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" connectable="0" parent="e_role_farmer">
+          <mxGeometry x="-0.5" relative="1" as="geometry">
+            <mxPoint as="offset" x="20" y="-12" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_farmer_record" style="edgeStyle=entityRelationEdgeStyle;rounded=0;html=1;startArrow=ERone;endArrow=ERmany;fontSize=12" edge="1" parent="1" source="farmer" target="record">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_farmer_record" value="has  1 : M" style="edgeLabel;html=1;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" connectable="0" parent="e_farmer_record">
+          <mxGeometry x="-0.5" relative="1" as="geometry">
+            <mxPoint as="offset" x="-10" y="-12" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_farmer_product" style="edgeStyle=entityRelationEdgeStyle;rounded=0;html=1;startArrow=ERone;endArrow=ERmany;fontSize=12" edge="1" parent="1" source="farmer" target="product">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_farmer_product" value="sells (as seller)  1 : M" style="edgeLabel;html=1;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" connectable="0" parent="e_farmer_product">
+          <mxGeometry x="-0.5" relative="1" as="geometry">
+            <mxPoint as="offset" x="0" y="-12" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_farmer_order" style="edgeStyle=entityRelationEdgeStyle;rounded=0;html=1;startArrow=ERone;endArrow=ERmany;fontSize=12" edge="1" parent="1" source="farmer" target="order">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_farmer_order" value="places (as buyer)  1 : M" style="edgeLabel;html=1;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" connectable="0" parent="e_farmer_order">
+          <mxGeometry x="-0.5" relative="1" as="geometry">
+            <mxPoint as="offset" x="10" y="-12" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_farmer_pestalert" style="edgeStyle=entityRelationEdgeStyle;rounded=0;html=1;startArrow=ERone;endArrow=ERmany;fontSize=12" edge="1" parent="1" source="farmer" target="pestAlert">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_farmer_pestalert" value="reports  1 : M" style="edgeLabel;html=1;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" connectable="0" parent="e_farmer_pestalert">
+          <mxGeometry x="-0.5" relative="1" as="geometry">
+            <mxPoint as="offset" x="0" y="-12" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_medicine_record" style="edgeStyle=entityRelationEdgeStyle;rounded=0;html=1;startArrow=ERone;endArrow=ERmany;fontSize=12" edge="1" parent="1" source="medicine" target="record">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_medicine_record" value="suggests medicines for  1 : M" style="edgeLabel;html=1;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" connectable="0" parent="e_medicine_record">
+          <mxGeometry x="-0.5" relative="1" as="geometry">
+            <mxPoint as="offset" x="-30" y="-12" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_order_item" style="edgeStyle=entityRelationEdgeStyle;rounded=0;html=1;dashed=1;startArrow=ERone;endArrow=ERmany;fontSize=12" edge="1" parent="1" source="order" target="orderItem">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_order_item" value="contains  1 : N (composition)" style="edgeLabel;html=1;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" connectable="0" parent="e_order_item">
+          <mxGeometry x="-0.5" relative="1" as="geometry">
+            <mxPoint as="offset" x="-30" y="-12" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_item_product" style="edgeStyle=entityRelationEdgeStyle;rounded=0;html=1;dashed=1;startArrow=ERmany;endArrow=ERone;fontSize=12" edge="1" parent="1" source="orderItem" target="product">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_item_product" value="references  N : 1" style="edgeLabel;html=1;fontSize=12;fontStyle=1;fontColor=#000000" vertex="1" connectable="0" parent="e_item_product">
+          <mxGeometry x="-0.5" relative="1" as="geometry">
+            <mxPoint as="offset" x="-20" y="-12" />
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

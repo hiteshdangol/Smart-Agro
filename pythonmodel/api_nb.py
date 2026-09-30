@@ -1,6 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 import joblib
 import pandas as pd
 import os
@@ -26,12 +26,12 @@ except FileNotFoundError:
     print(f"Warning: Model file not found at {MODEL_PATH}")
 
 class PestInput(BaseModel):
-    temp_avg: float
-    humidity: float
-    rainfall_mm: float
+    temp_avg: float = Field(..., ge=-50, le=50, description="Average temperature in Celsius")
+    humidity: float = Field(..., ge=0, le=100, description="Relative humidity percentage")
+    rainfall_mm: float = Field(..., ge=0, le=500, description="Rainfall in mm")
     crop_type: str
     growth_stage: str
-    prev_pest_incidence: float
+    prev_pest_incidence: float = Field(..., ge=0, le=1, description="Previous pest incidence (0-1)")
 
 @app.get("/")
 def read_root():
@@ -45,14 +45,14 @@ def get_profile():
 def predict_pest_risk(data: PestInput):
     print("predct from api_nb is being called:: ")
     if model is None:
-        return {"error": "Model not loaded"}
+        raise HTTPException(status_code=503, detail="Pest risk model not loaded")
     
     try:
-        df = pd.DataFrame([data.dict()])
+        df = pd.DataFrame([data.model_dump()])
         prediction = model.predict(df)[0]
         return {"risk_level": prediction}
     except Exception as e:
-        return {"error": f"Prediction failed: {str(e)}"}
+        raise HTTPException(status_code=500, detail=f"Prediction failed: {str(e)}")
 
 # Health check endpoint
 @app.get("/health")

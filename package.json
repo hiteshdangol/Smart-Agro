@@ -1,0 +1,19 @@
+{
+  "name": "smart-agro",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n BE,FE,PEST,CROP,DISEASE -c blue,green,yellow,magenta,cyan \"npm --prefix backend run dev\" \"npm --prefix frontend start\" \"npm run pest-api\" \"npm run crop-api\" \"npm run disease-api\"",
+    "backend": "npm --prefix backend run dev",
+    "frontend": "npm --prefix frontend start",
+    "pest-api": "cd pythonmodel && .venv\\Scripts\\uvicorn api_nb:app --host 0.0.0.0 --port 5002",
+    "crop-api": "cd pythonmodel && .venv\\Scripts\\python crop_recommendataion_knn.py",
+    "disease-api": "cd pythonmodel && \"C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python39\\python.exe\" -m uvicorn disease_api:app --host 0.0.0.0 --port 5004"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "dependencies": {
+    "form-data": "^4.0.6"
+  }
+}

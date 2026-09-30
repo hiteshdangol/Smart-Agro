@@ -35,13 +35,22 @@ function Navbar() {
       <div className={`nav-links ${isDropdownOpen ? 'open' : ''}`}>
         {farmer?.role==="Admin"?(<Link to="/admindashboard" className='nav-link'>Dashboard</Link>):(null)}
         <Link to="/dashboard" className="nav-link">Home</Link>
+        <Link to="/shop" className="nav-link">Shop</Link>
+        <Link to="/my-listings" className="nav-link">My Listings</Link>
+        <Link to="/cart" className="nav-link">Cart</Link>
+        <Link to="/my-orders" className="nav-link">My Orders</Link>
         <Link to="/profile" className="nav-link">Profile</Link>
         <Link to="/records" className="nav-link">Previous Records</Link>
         <Link to="/manual-automation" className="nav-link">Manual Automation</Link>
-        <Link to="/about" className="nav-link">About</Link>
         <Link to="/pestAlert" className="nav-link">Pest Alert</Link>
         <Link to="/CropRecommendation" className="nav-link">Crop Recommendataion</Link>
         <Link to="/" className="nav-link">Logout</Link>
+        {farmer?.role==="Admin" && (
+          <div className="nav-link" style={{ fontWeight: 'bold', borderTop: '1px solid #555', marginTop: '0.5rem', paddingTop: '0.5rem' }}>
+            <Link to="/admin/products" className="nav-link">Admin-Products</Link>
+            <Link to="/admin/orders" className="nav-link">Admin-Orders</Link>
+          </div>
+        )}
       </div>
       <div className="navbar-dropdown">
         <button className="dropdown-toggle" onClick={toggleDropdown}>

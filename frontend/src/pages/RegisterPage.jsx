@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axiosInstance from '../utils/axiosInstance';
+import { showToast } from '../utils/toast';
 import '../styles/RegisterPage.css';
 
 function RegisterPage() {
@@ -13,39 +14,42 @@ function RegisterPage() {
     try {
       const response = await axiosInstance.post('/auth/register', { name, email, password });
       localStorage.setItem('token', response.data.token);
-      alert('Registration successful!');
+      showToast('Registration successful!', 'success');
       navigate('/dashboard');
     } catch (error) {
-      console.error( error.message);
-      alert('Registration failed. Please try again.');
+      const msg = error.response?.data?.message || error.response?.data?.error || error.message || 'Registration failed';
+      showToast(msg, 'error');
     }
   };
 
   return (
-    <div className="container">
-      <h1>Register</h1>
-      <input
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleRegister}>Register</button>
-      <p>
-        Already have an account? <a href="/">Login here</a>
-      </p>
+    <div className="register-page">
+      <div className="register-card">
+        <h1>Smart Agro</h1>
+        <p className="register-subtitle">Join our farming community</p>
+        <input
+          type="text"
+          placeholder="Full Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button className="btn btn-primary" onClick={handleRegister}>Register</button>
+        <p className="register-footer">
+          Already have an account? <Link to="/">Login here</Link>
+        </p>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,127 @@
+<mxfile host="app.diagrams.net" agent="opencode">
+  <diagram id="use-case-diagram" name="Use Case Diagram">
+    <mxGraphModel dx="1106" dy="644" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1150" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="systemBoundary" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=13;fontColor=#000000;verticalAlign=top;spacingTop=6" value="&lt;b&gt;Smart Agro System&lt;/b&gt;" vertex="1">
+          <mxGeometry height="640" width="720" x="340" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="actorFarmer" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=13" value="&lt;b&gt;Farmer&lt;br&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="70" x="110" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="actorAdmin" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=13;flipH=1;legacyAnchorPoints=0;" value="&lt;b&gt;Admin&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="70" x="1107" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="ucRegister" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" value="Register / Login" vertex="1">
+          <mxGeometry height="55" width="180" x="450" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ucProfile" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" value="Manage Profile" vertex="1">
+          <mxGeometry height="55" width="180" x="450" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="ucRecords" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" value="Create / View Crop Records" vertex="1">
+          <mxGeometry height="55" width="180" x="450" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="ucPest" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" value="Predict Pest Risk" vertex="1">
+          <mxGeometry height="55" width="180" x="450" y="548" as="geometry" />
+        </mxCell>
+        <mxCell id="ucCrop" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" value="Get Crop Recommendation" vertex="1">
+          <mxGeometry height="55" width="180" x="450" y="624" as="geometry" />
+        </mxCell>
+        <mxCell id="ucSell" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" value="List / Manage Products" vertex="1">
+          <mxGeometry height="55" width="180" x="450" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ucUsers" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" value="Manage Users &amp;amp; Roles" vertex="1">
+          <mxGeometry height="55" width="180" x="777" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ucVerify" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" value="Verify Farmers" vertex="1">
+          <mxGeometry height="55" width="180" x="777" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="ucApprove" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" value="Approve Products" vertex="1">
+          <mxGeometry height="55" width="180" x="777" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="ucOrders" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" value="Manage Orders" vertex="1">
+          <mxGeometry height="55" width="180" x="777" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="ucMedicines" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" value="Manage Medicine Database" vertex="1">
+          <mxGeometry height="55" width="180" x="777" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ucDisease" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" value="Recognize Plant Disease" vertex="1">
+          <mxGeometry height="55" width="180" x="450" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="kCCcyHbyF4LHppwpJzOB-1" edge="1" parent="1" source="actorFarmer" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" target="ucDisease" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="620" y="440" as="sourcePoint" />
+            <mxPoint x="670" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kCCcyHbyF4LHppwpJzOB-2" edge="1" parent="1" source="actorFarmer" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" target="ucRegister" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="170" y="275" as="sourcePoint" />
+            <mxPoint x="440" y="273" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kCCcyHbyF4LHppwpJzOB-3" edge="1" parent="1" source="actorFarmer" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" target="ucProfile" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="260" y="373" as="sourcePoint" />
+            <mxPoint x="530" y="211" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kCCcyHbyF4LHppwpJzOB-4" edge="1" parent="1" source="actorFarmer" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" target="ucSell" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="450" y="322" as="sourcePoint" />
+            <mxPoint x="720" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kCCcyHbyF4LHppwpJzOB-5" edge="1" parent="1" source="ucRecords" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.3333333333333333;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="actorFarmer" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="450" y="502" as="sourcePoint" />
+            <mxPoint x="720" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kCCcyHbyF4LHppwpJzOB-6" edge="1" parent="1" source="ucPest" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.3333333333333333;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryPerimeter=0;" target="actorFarmer" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="690" y="552" as="sourcePoint" />
+            <mxPoint x="960" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kCCcyHbyF4LHppwpJzOB-7" edge="1" parent="1" source="actorFarmer" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" target="ucCrop" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="350" y="492" as="sourcePoint" />
+            <mxPoint x="620" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kCCcyHbyF4LHppwpJzOB-8" edge="1" parent="1" source="ucUsers" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.3333333333333333;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryPerimeter=0;" target="actorAdmin" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="440" y="732" as="sourcePoint" />
+            <mxPoint x="710" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kCCcyHbyF4LHppwpJzOB-9" edge="1" parent="1" source="ucVerify" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.3333333333333333;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryPerimeter=0;" target="actorAdmin" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="950" y="242" as="sourcePoint" />
+            <mxPoint x="1220" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kCCcyHbyF4LHppwpJzOB-10" edge="1" parent="1" source="ucOrders" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.3333333333333333;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryPerimeter=0;" target="actorAdmin" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1110" y="402" as="sourcePoint" />
+            <mxPoint x="1380" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kCCcyHbyF4LHppwpJzOB-11" edge="1" parent="1" source="ucMedicines" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.3333333333333333;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryPerimeter=0;" target="actorAdmin" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1100" y="412" as="sourcePoint" />
+            <mxPoint x="1370" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kCCcyHbyF4LHppwpJzOB-12" edge="1" parent="1" source="ucApprove" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.3333333333333333;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryPerimeter=0;" target="actorAdmin" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1100" y="422" as="sourcePoint" />
+            <mxPoint x="1370" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

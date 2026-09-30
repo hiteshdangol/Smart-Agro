@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axiosInstance from '../utils/axiosInstance';
+import { showToast } from '../utils/toast';
 import '../styles/LoginPage.css';
 
 function LoginPage() {
@@ -12,33 +13,36 @@ function LoginPage() {
     try {
       const response = await axiosInstance.post('/auth/login', { email, password });
       localStorage.setItem('token', response.data.token);
-      //alert('Login successful!');
-      navigate('/dashboard');
+      const role = response.data.farmer?.role;
+      navigate(role === 'Admin' ? '/admin/dashboard' : '/dashboard');
     } catch (error) {
       console.error('Error during login:', error);
-      alert('Login failed. Please check your credentials.');
+      showToast('Login failed. Please check your credentials.', 'error');
     }
   };
 
   return (
-    <div className="container">
-      <h1>Login</h1>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
-      <p>
-        Don’t have an account? <a href="/register">Register here</a>
-      </p>
+    <div className="login-page">
+      <div className="login-card">
+        <h1>Smart Agro</h1>
+        <p className="login-subtitle">Welcome back, farmer</p>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button className="btn btn-primary" onClick={handleLogin}>Login</button>
+        <p className="login-footer">
+          Don't have an account? <Link to="/register">Register here</Link>
+        </p>
+      </div>
     </div>
   );
 }

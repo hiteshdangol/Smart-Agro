@@ -21,15 +21,37 @@ const farmerSchema = new mongoose.Schema({
     required: [true, 'Password is required'],
     minlength: [6, 'Password must be at least 6 characters long']
   },
-  role: { 
-    type: String, 
+  role: {
+    type: String,
     default: 'Farmer',
-    enum: ['Farmer', 'Admin'], // Define allowed roles
-    trim: true
+    trim: true,
+  },
+  permissionsOverride: {
+    type: [String],
+    default: [],
   },
   profilePicture: { 
     type: String, 
     default: '' 
+  },
+  isBlocked: {
+    type: Boolean,
+    default: false,
+  },
+  farmName: {
+    type: String,
+    default: '',
+    trim: true,
+  },
+  location: {
+    type: String,
+    default: '',
+    trim: true,
+  },
+  verificationStatus: {
+    type: String,
+    enum: ['pending', 'verified', 'suspended'],
+    default: 'pending',
   },
 }, {
   timestamps: true // Adds createdAt and updatedAt fields

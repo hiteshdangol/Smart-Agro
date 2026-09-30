@@ -1,0 +1,89 @@
+<mxfile host="app.diagrams.net" modified="2026-08-01T00:00:00.000Z" agent="opencode" version="24.0.0" type="device">
+  <diagram id="dfd-level0" name="DFD Level 0 - Context">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="&lt;b&gt;DFD LEVEL 0 (CONTEXT DIAGRAM) - SMART AGRO SYSTEM&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="250" y="20" width="700" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="farmer" value="&lt;b&gt;FARMER&lt;/b&gt;" style="shape=doubleRectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="80" y="380" width="150" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="admin" value="&lt;b&gt;ADMIN&lt;/b&gt;" style="shape=doubleRectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="80" y="580" width="150" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="esewa" value="&lt;b&gt;ESEWA&lt;br&gt;PAYMENT GATEWAY&lt;/b&gt;" style="shape=doubleRectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="970" y="380" width="160" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="system" value="&lt;b&gt;0&lt;/b&gt;&lt;br&gt;SMART AGRO&lt;br&gt;SYSTEM" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=13;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="500" y="380" width="180" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_farmer_sys" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5" edge="1" parent="1" source="farmer" target="system">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_farmer_sys" value="credentials, crop/pest inputs, leaf image, orders" style="edgeLabel;html=1;align=center;fontSize=12" vertex="1" connectable="0" parent="e_farmer_sys">
+          <mxGeometry x="-0.3" relative="1" as="geometry">
+            <mxPoint as="offset" x="10" y="-20" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_sys_farmer" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;exitX=0;exitY=0.5" edge="1" parent="1" source="system" target="farmer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_sys_farmer" value="recommendations, disease result, order status" style="edgeLabel;html=1;align=center;fontSize=12" vertex="1" connectable="0" parent="e_sys_farmer">
+          <mxGeometry x="-0.3" relative="1" as="geometry">
+            <mxPoint as="offset" x="10" y="-30" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_admin_sys" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5" edge="1" parent="1" source="admin" target="system">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_admin_sys" value="manage users, farmers, products, orders, medicines, roles" style="edgeLabel;html=1;align=center;fontSize=12" vertex="1" connectable="0" parent="e_admin_sys">
+          <mxGeometry x="-0.3" relative="1" as="geometry">
+            <mxPoint as="offset" x="-80" y="-20" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_sys_admin" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;exitX=1;exitY=1" edge="1" parent="1" source="system" target="admin">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_sys_admin" value="lists, stats, audit data" style="edgeLabel;html=1;align=center;fontSize=12" vertex="1" connectable="0" parent="e_sys_admin">
+          <mxGeometry x="-0.3" relative="1" as="geometry">
+            <mxPoint as="offset" x="120" y="10" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_sys_esewa" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5" edge="1" parent="1" source="system" target="esewa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_sys_esewa" value="initiate payment&lt;br&gt;(signed form, pidx)" style="edgeLabel;html=1;align=center;fontSize=12" vertex="1" connectable="0" parent="e_sys_esewa">
+          <mxGeometry x="-0.3" relative="1" as="geometry">
+            <mxPoint as="offset" x="-130" y="-20" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_esewa_sys" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;exitX=1;exitY=1" edge="1" parent="1" source="esewa" target="system">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_esewa_sys" value="redirect back + payment status" style="edgeLabel;html=1;align=center;fontSize=12" vertex="1" connectable="0" parent="e_esewa_sys">
+          <mxGeometry x="-0.3" relative="1" as="geometry">
+            <mxPoint as="offset" x="-130" y="10" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="legend" value="&lt;b&gt;NOTATION&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&amp;#9678;  Process (0 = whole system)&lt;br&gt;&amp;#9632;  External Entity (farmer, admin, gateway)&lt;br&gt;&amp;#8594;  Data Flow" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="480" y="700" width="300" height="110" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

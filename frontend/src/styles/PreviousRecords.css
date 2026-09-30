@@ -1,95 +1,516 @@
-/* General Styling */
-.container {
-  max-width: 1200px;
+.records-page {
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 20px;
-  background-color: var(--secondary-color); /* Change to consistent secondary color */
-  border-radius: 10px; /* Round corners for a cleaner look */
-  box-shadow: var(--box-shadow-light); /* Consistent box-shadow */
-  font-family: 'Arial', sans-serif;
+  padding: 2rem 1rem;
+  animation: fadeInUp 0.5s ease forwards, fadeInScale 0.4s var(--bounce) forwards;
 }
 
-h1 {
-  text-align: center;
-  color: var(--primary-color); /* Consistent primary color */
-  margin-bottom: 30px;
+.records-page h1 {
   font-size: 2rem;
-  font-weight: bold;
-}
-
-/* Category Section Styling */
-.category-section {
-  margin-bottom: 40px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #ffffff;
-  box-shadow: var(--box-shadow-light); /* Consistent box-shadow */
-}
-
-.category-title {
-  color: var(--primary-color); /* Consistent primary color */
-  margin-bottom: 20px;
-  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
   text-align: center;
+  background: linear-gradient(135deg, var(--primary), var(--primary-deeper));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Records Container */
-.records-container {
+/* ── Tabs ── */
+.records-tabs {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
   justify-content: center;
 }
 
-/* Individual Record Box */
+.records-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: var(--transition-spring);
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.records-tab:hover {
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--glass-shadow-md);
+}
+
+.records-tab.active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-deeper));
+  color: #fff;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.records-tab.active:hover {
+  color: #fff;
+}
+
+.records-tab-count {
+  background: rgba(0, 0, 0, 0.08);
+  padding: 0.1rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.records-tab.active .records-tab-count {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Crop records ── */
+.category-section {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow-md);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: var(--transition-spring);
+}
+
+.category-section:hover {
+  box-shadow: var(--glass-shadow-lg);
+  border-color: var(--glass-border-hover);
+}
+
+.category-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-light);
+}
+
+.records-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .record-box {
-  flex: 1 1 calc(30% - 20px);
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 15px;
-  background-color: #f5f5f5;
-  box-shadow: var(--box-shadow-light); /* Consistent box-shadow */
-  transition: transform 0.3s ease;
+  flex: 1 1 calc(33.333% - 1rem);
+  min-width: 240px;
+  padding: 1rem 1.25rem;
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  box-shadow: var(--glass-shadow-sm);
+  transition: var(--transition-spring);
 }
 
 .record-box:hover {
-  transform: translateY(-5px);
+  transform: var(--hover-lift);
+  box-shadow: var(--glass-shadow-md);
+  border-color: var(--glass-border-hover);
 }
 
 .record-box p {
-  margin: 5px 0;
-  color: var(--text-color); /* Consistent text color */
-  font-size: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
 }
 
-/* No Records Found Styling */
+.record-box strong {
+  color: var(--text-primary);
+}
+
+/* ── Disease records ── */
+.disease-records-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.disease-record-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow-md);
+  padding: 1.25rem;
+  transition: var(--transition-spring);
+}
+
+.disease-record-card:hover {
+  box-shadow: var(--glass-shadow-lg);
+  border-color: var(--glass-border-hover);
+}
+
+.disease-record-top {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.disease-record-thumb {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.disease-record-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.disease-record-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.disease-record-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.disease-record-name strong {
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.disease-record-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #e67e22;
+  background: rgba(230, 126, 34, 0.1);
+  border: 1px solid rgba(230, 126, 34, 0.2);
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.disease-record-confidence {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.disease-record-conf-bar {
+  flex: 1;
+  max-width: 140px;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.disease-record-conf-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.disease-record-conf-bar.conf-high .disease-record-conf-fill {
+  background: linear-gradient(90deg, var(--primary), var(--primary-deeper));
+}
+
+.disease-record-conf-bar.conf-mid .disease-record-conf-fill {
+  background: linear-gradient(90deg, #f39c12, #e67e22);
+}
+
+.disease-record-conf-bar.conf-low .disease-record-conf-fill {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.disease-record-conf-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.disease-record-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.disease-record-details {
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(46, 204, 113, 0.1);
+  margin-bottom: 0.75rem;
+}
+
+.disease-record-detail {
+  margin-bottom: 0.4rem;
+}
+
+.disease-record-detail .rec-label {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.disease-record-detail p {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  margin-top: 0.1rem;
+  line-height: 1.4;
+}
+
+.disease-record-medicines {
+  border-top: 1px solid rgba(46, 204, 113, 0.1);
+  padding-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.disease-record-medicines h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.disease-record-med-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.disease-record-med-tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.disease-record-med-tag.chemical {
+  background: rgba(52, 152, 219, 0.1);
+  color: #2980b9;
+  border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+.disease-record-med-tag.organic {
+  background: rgba(39, 174, 96, 0.1);
+  color: #27ae60;
+  border: 1px solid rgba(39, 174, 96, 0.2);
+}
+
+.disease-record-purchases {
+  border-top: 1px solid rgba(46, 204, 113, 0.1);
+  padding-top: 0.75rem;
+}
+
+.disease-record-purchases h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.disease-record-purchase-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.35rem 0;
+  font-size: 0.85rem;
+}
+
+.disease-record-purchase-item .purchase-name {
+  flex: 1;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.disease-record-purchase-item .purchase-qty {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.disease-record-purchase-item .purchase-price {
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+/* ── Recommendation records ── */
+.rec-records-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.rec-record-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow-md);
+  padding: 1.25rem;
+  transition: var(--transition-spring);
+}
+
+.rec-record-card:hover {
+  box-shadow: var(--glass-shadow-lg);
+  border-color: var(--glass-border-hover);
+}
+
+.rec-record-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.rec-record-icon {
+  font-size: 2rem;
+}
+
+.rec-record-crop {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  text-transform: capitalize;
+}
+
+.rec-record-date {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.rec-record-confidence {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+.rec-record-conf-bar {
+  width: 80px;
+  height: 5px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.rec-record-conf-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.rec-record-conf-bar.conf-high .rec-record-conf-fill {
+  background: linear-gradient(90deg, var(--primary), var(--primary-deeper));
+}
+
+.rec-record-conf-bar.conf-mid .rec-record-conf-fill {
+  background: linear-gradient(90deg, #f39c12, #e67e22);
+}
+
+.rec-record-conf-bar.conf-low .rec-record-conf-fill {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.rec-record-unreliable {
+  color: #b45309;
+  font-weight: 600;
+}
+
+.rec-record-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background: #fff7ed;
+  border: 1px solid #fdba74;
+  border-radius: 10px;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  color: #9a3412;
+}
+
+.rec-record-warning-icon {
+  flex-shrink: 0;
+}
+
+.rec-record-params {
+  border-top: 1px solid rgba(46, 204, 113, 0.1);
+  padding-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.rec-record-params h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.rec-params-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.rec-param {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  min-width: 70px;
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.rec-param .rec-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.rec-param span:last-child {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
 .no-records {
   text-align: center;
-  font-size: 1.1rem;
-  color: #555;
-  margin-top: 20px;
+  color: var(--text-muted);
+  padding: 2rem;
 }
 
-/* Loading and Error Message */
-.loading, .error-message {
-  text-align: center;
-  font-size: 1.1rem;
-  color: #f44336;
-  margin-top: 20px;
-}
-
-.loading p {
-  color: var(--primary-color); /* Consistent primary color for loading */
-}
-
-/* Responsive Design for Smaller Screens */
 @media (max-width: 768px) {
-  .record-box {
-    flex: 1 1 100%;
-  }
-
-  .category-title {
-    font-size: 1.2rem;
-  }
+  .records-page { padding: 1rem 0.75rem; }
+  .records-page h1 { font-size: 1.5rem; }
+  .record-box { flex: 1 1 100%; min-width: unset; }
+  .records-tabs { flex-wrap: wrap; }
+  .records-tab { flex: 1 1 auto; }
+  .disease-record-top { flex-direction: column; }
+  .disease-record-thumb { width: 64px; height: 64px; }
 }

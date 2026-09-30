@@ -1,0 +1,226 @@
+.my-orders-page h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.my-orders-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--glass-border);
+  padding-bottom: 0;
+}
+
+.my-orders-tab {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 0.75rem;
+  transition: color 0.2s ease;
+}
+
+.my-orders-tab:hover {
+  color: var(--text-primary);
+}
+
+.my-orders-tab.active {
+  color: var(--accent);
+}
+
+.my-orders-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px 2px 0 0;
+}
+
+.my-orders-tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  margin-left: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+.my-orders-page > p {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 0;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.order-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--glass-shadow);
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+
+.order-card:hover {
+  box-shadow: var(--glass-shadow-hover);
+  border-color: var(--glass-border-hover);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.order-header p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.order-header strong {
+  color: var(--text-primary);
+}
+
+.order-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.order-details p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.order-details strong {
+  color: var(--text-primary);
+}
+
+.order-items {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.order-items h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.order-items p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.2rem;
+}
+
+.wishlist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wishlist-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--glass-shadow);
+  padding: 1.25rem;
+  transition: var(--transition);
+}
+
+.wishlist-card:hover {
+  box-shadow: var(--glass-shadow-hover);
+  border-color: var(--glass-border-hover);
+}
+
+.wishlist-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.wishlist-card-header h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.wishlist-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.wishlist-card-details p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.wishlist-card-details strong {
+  color: var(--text-primary);
+}
+
+.wishlist-card-action {
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.wishlist-rejected {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.badge-fulfilled {
+  background: var(--success, #22c55e);
+  color: #fff;
+}
+
+.badge-rejected {
+  background: var(--danger, #ef4444);
+  color: #fff;
+}
+
+.badge-pending {
+  background: var(--warning, #f59e0b);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .my-orders-page { padding: 1rem 0.75rem; }
+  .my-orders-page h1 { font-size: 1.5rem; }
+  .order-details { grid-template-columns: 1fr; }
+  .my-orders-tab { padding: 0.5rem 1rem; font-size: 0.85rem; }
+}

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import "../styles/Dashboard.css";
 import axiosInstance from "../utils/axiosInstance";
 import SensorGraph from "../components/SensorGraphs";
+import { showToast } from "../utils/toast";
 
 function Dashboard() {
   const [sensorData, setSensorData] = useState({
@@ -135,8 +134,8 @@ function Dashboard() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      await axiosInstance.post("/records", cropData);
-      alert("Crop record added successfully!");
+      await axiosInstance.post("/records", { ...cropData, type: "crop" });
+      showToast("Crop record added successfully!", "success");
       setCropData({
         crop: "",
         cultivationDate: "",
@@ -145,7 +144,7 @@ function Dashboard() {
       });
     } catch (error) {
       console.error("Error adding crop record:", error);
-      alert("Failed to add crop record. Please try again.");
+      showToast("Failed to add crop record. Please try again.", "error");
     } finally {
       setIsLoading(false);
     }
@@ -157,7 +156,6 @@ function Dashboard() {
 
   return (
     <>
-      <Navbar />
       <div className="dashboard-container">
         <h1>🌱 Smart Famring</h1>
         <div className="dashboard-sections">
@@ -240,7 +238,6 @@ function Dashboard() {
           </section>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

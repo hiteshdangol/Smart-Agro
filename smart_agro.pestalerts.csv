@@ -1,0 +1,2 @@
+_id,type,crop,severity,description,location.coordinates[0],location.coordinates[1],location.type,createdAt,__v
+68b302e83094c2ef0dc8ffd1,amphid,maize,Low,maize eaten,85.32777170211446,27.683078230618957,Point,2025-08-30T13:55:52.515Z,0

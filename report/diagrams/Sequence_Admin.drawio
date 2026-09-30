@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net" modified="2026-08-01T00:00:00.000Z" agent="opencode" version="24.0.0" type="device">
+  <diagram id="sequence-admin" name="Sequence Diagram - Admin">
+    <mxGraphModel dx="1100" dy="2100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="2100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="&lt;b&gt;SEQUENCE DIAGRAM - ADMIN FLOWS (product approval, farmer verification, RBAC)&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="180" y="20" width="740" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Lifeline heads -->
+        <mxCell id="ll_admin" value="Admin" style="shape=actor;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="35" y="90" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_layout" value="AdminLayout (React)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="205" y="90" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_routes" value="AdminRoutes (Express)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="375" y="90" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_perm" value="PermissionMiddleware" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="545" y="90" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_ctrl" value="AdminController" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="715" y="90" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_db" value="MongoDB (Farmers / Products / Roles)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="875" y="90" width="120" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Lifelines -->
+        <mxCell id="line_admin" style="dashed=1;endArrow=none;html=1;strokeColor=#000000" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="95" y="145" as="sourcePoint"/><mxPoint x="95" y="2040" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="line_layout" style="dashed=1;endArrow=none;html=1;strokeColor=#000000" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="265" y="145" as="sourcePoint"/><mxPoint x="265" y="2040" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="line_routes" style="dashed=1;endArrow=none;html=1;strokeColor=#000000" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="145" as="sourcePoint"/><mxPoint x="435" y="2040" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="line_perm" style="dashed=1;endArrow=none;html=1;strokeColor=#000000" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="605" y="145" as="sourcePoint"/><mxPoint x="605" y="2040" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="line_ctrl" style="dashed=1;endArrow=none;html=1;strokeColor=#000000" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="775" y="145" as="sourcePoint"/><mxPoint x="775" y="2040" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="line_db" style="dashed=1;endArrow=none;html=1;strokeColor=#000000" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="935" y="145" as="sourcePoint"/><mxPoint x="935" y="2040" as="targetPoint"/></mxGeometry></mxCell>
+
+        <!-- Fragment A: product approval -->
+        <mxCell id="fragA" value="alt [manage products &amp; approvals]" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;verticalAlign=top;fontSize=12;fontStyle=3" vertex="1" parent="1">
+          <mxGeometry x="45" y="470" width="890" height="610" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m1" value="1: open /admin (JWT)" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="95" y="180" as="sourcePoint"/><mxPoint x="265" y="180" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m2" value="2: GET /api/admin/products" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="265" y="230" as="sourcePoint"/><mxPoint x="435" y="230" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m3" value="3: verify token + requirePermission('admin:access')" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="280" as="sourcePoint"/><mxPoint x="605" y="280" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m4" value="4: allowed (role = Admin)" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="605" y="330" as="sourcePoint"/><mxPoint x="435" y="330" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m5" value="5: getAllAdminProducts()" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="380" as="sourcePoint"/><mxPoint x="775" y="380" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m6" value="6: Product.find() .populate('seller')" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="775" y="430" as="sourcePoint"/><mxPoint x="935" y="430" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m7" value="7: products[]" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="935" y="480" as="sourcePoint"/><mxPoint x="775" y="480" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m8" value="8: {success, products}" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="775" y="530" as="sourcePoint"/><mxPoint x="435" y="530" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m9" value="9: render pending products table" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="580" as="sourcePoint"/><mxPoint x="265" y="580" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m10" value="10: approve product (click)" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="95" y="630" as="sourcePoint"/><mxPoint x="265" y="630" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m11" value="11: PUT /api/admin/products/:id/approve {status:'approved'}" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="265" y="680" as="sourcePoint"/><mxPoint x="435" y="680" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m12" value="12: requirePermission('admin:access')" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="730" as="sourcePoint"/><mxPoint x="605" y="730" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m13" value="13: granted" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="605" y="780" as="sourcePoint"/><mxPoint x="435" y="780" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m14" value="14: approveProduct(id, status)" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="830" as="sourcePoint"/><mxPoint x="775" y="830" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m15" value="15: findByIdAndUpdate({approvalStatus})" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="775" y="880" as="sourcePoint"/><mxPoint x="935" y="880" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m16" value="16: updated product" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="935" y="930" as="sourcePoint"/><mxPoint x="775" y="930" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m17" value="17: {success, product}" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="775" y="980" as="sourcePoint"/><mxPoint x="435" y="980" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m18" value="18: refresh list (product now live in shop)" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="1030" as="sourcePoint"/><mxPoint x="265" y="1030" as="targetPoint"/></mxGeometry></mxCell>
+
+        <!-- Fragment B: farmer verification -->
+        <mxCell id="fragB" value="alt [manage farmers / users]" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;verticalAlign=top;fontSize=12;fontStyle=3" vertex="1" parent="1">
+          <mxGeometry x="45" y="1090" width="890" height="460" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m19" value="19: verify farmer" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="95" y="1100" as="sourcePoint"/><mxPoint x="265" y="1100" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m20" value="20: PUT /api/admin/farmers/:id/verify" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="265" y="1150" as="sourcePoint"/><mxPoint x="435" y="1150" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m21" value="21: requirePermission('admin:access')" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="1200" as="sourcePoint"/><mxPoint x="605" y="1200" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m22" value="22: granted" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="605" y="1250" as="sourcePoint"/><mxPoint x="435" y="1250" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m23" value="23: verifyFarmer(id, 'verified')" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="1300" as="sourcePoint"/><mxPoint x="775" y="1300" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m24" value="24: Farmer.findByIdAndUpdate({verificationStatus})" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="775" y="1350" as="sourcePoint"/><mxPoint x="935" y="1350" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m25" value="25: updated farmer" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="935" y="1400" as="sourcePoint"/><mxPoint x="775" y="1400" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m26" value="26: {success, farmer}" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="775" y="1450" as="sourcePoint"/><mxPoint x="435" y="1450" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m27" value="27: update UI" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="1500" as="sourcePoint"/><mxPoint x="265" y="1500" as="targetPoint"/></mxGeometry></mxCell>
+
+        <!-- Fragment C: RBAC -->
+        <mxCell id="fragC" value="alt [manage roles &amp; permissions]" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;verticalAlign=top;fontSize=12;fontStyle=3" vertex="1" parent="1">
+          <mxGeometry x="45" y="1570" width="890" height="460" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m28" value="28: manage role / permissions" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="95" y="1580" as="sourcePoint"/><mxPoint x="265" y="1580" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m29" value="29: PUT /api/users/:id {permissionsOverride}" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="265" y="1630" as="sourcePoint"/><mxPoint x="435" y="1630" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m30" value="30: requirePermission('users:manage_permissions')" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="1680" as="sourcePoint"/><mxPoint x="605" y="1680" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m31" value="31: granted" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="605" y="1730" as="sourcePoint"/><mxPoint x="435" y="1730" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m32" value="32: updateUserPermissions(id, overrides)" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="1780" as="sourcePoint"/><mxPoint x="775" y="1780" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m33" value="33: Farmer.save() (permissionsOverride)" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="775" y="1830" as="sourcePoint"/><mxPoint x="935" y="1830" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m34" value="34: saved" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="935" y="1880" as="sourcePoint"/><mxPoint x="775" y="1880" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m35" value="35: {success}" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="775" y="1930" as="sourcePoint"/><mxPoint x="435" y="1930" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m36" value="36: render updated roles" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="1980" as="sourcePoint"/><mxPoint x="265" y="1980" as="targetPoint"/></mxGeometry></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

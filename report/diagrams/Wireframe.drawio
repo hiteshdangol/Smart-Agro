@@ -1,0 +1,123 @@
+<mxfile host="app.diagrams.net" modified="2026-08-01T00:00:00.000Z" agent="opencode" version="24.0.0" type="device">
+  <diagram id="wireframe" name="Wireframes">
+    <mxGraphModel dx="1600" dy="1300" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="&lt;b&gt;WIREFRAMES - LOW-FIDELITY SCREEN LAYOUTS&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="500" y="20" width="600" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ============ WIREFRAME 1: LOGIN ============ -->
+        <mxCell id="wf1_title" value="&lt;b&gt;Wireframe 1 - Login Screen&lt;/b&gt;" style="text;html=1;fontSize=14;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_frame" value="Login" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;verticalAlign=top;fontSize=11;fontStyle=1;spacing=8" vertex="1" parent="1">
+          <mxGeometry x="60" y="140" width="320" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_logo" value="SMART AGRO" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;fontStyle=1;fontSize=16;verticalAlign=middle" vertex="1" parent="1">
+          <mxGeometry x="90" y="175" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_le" value="Email" style="text;html=1;fontSize=11;align=left" vertex="1" parent="1">
+          <mxGeometry x="100" y="270" width="240" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_e" value="name@example.com" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10;align=left;spacingLeft=8" vertex="1" parent="1">
+          <mxGeometry x="100" y="290" width="240" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_lp" value="Password" style="text;html=1;fontSize=11;align=left" vertex="1" parent="1">
+          <mxGeometry x="100" y="350" width="240" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_p" value="&amp;#8226;&amp;#8226;&amp;#8226;&amp;#8226;&amp;#8226;&amp;#8226;&amp;#8226;&amp;#8226;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;align=left;spacingLeft=8" vertex="1" parent="1">
+          <mxGeometry x="100" y="370" width="240" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_btn" value="Login" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;fontStyle=1;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="100" y="440" width="240" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_reg" value="Don't have an account? Register" style="text;html=1;fontSize=11;align=center" vertex="1" parent="1">
+          <mxGeometry x="100" y="510" width="240" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ============ WIREFRAME 2: FARMER DASHBOARD ============ -->
+        <mxCell id="wf2_title" value="&lt;b&gt;Wireframe 2 - Farmer Dashboard&lt;/b&gt;" style="text;html=1;fontSize=14;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="820" y="100" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_side" value="&lt;b&gt;NAV&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;Dashboard&lt;br&gt;Records&lt;br&gt;Crop Analysis&lt;br&gt;Disease&lt;br&gt;Shop&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;Profile&lt;br&gt;Logout" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;verticalAlign=top;align=left;spacingLeft=12;spacingRight=12;fontSize=11;spacing=8" vertex="1" parent="1">
+          <mxGeometry x="820" y="140" width="200" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_hdr" value="Welcome, Farmer | Dashboard" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;verticalAlign=middle;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1040" y="140" width="500" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_chart" value="[ crop records / analysis panel ]" style="dashed=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11;verticalAlign=middle" vertex="1" parent="1">
+          <mxGeometry x="1040" y="220" width="340" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_sugg" value="[ crop suggestion panel ]" style="dashed=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11;verticalAlign=middle" vertex="1" parent="1">
+          <mxGeometry x="1400" y="220" width="140" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_form" value="[ crop record form: crop, date, qty, description ]" style="dashed=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11;verticalAlign=middle" vertex="1" parent="1">
+          <mxGeometry x="1040" y="490" width="500" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- ============ WIREFRAME 3: SHOP / CHECKOUT ============ -->
+        <mxCell id="wf3_title" value="&lt;b&gt;Wireframe 3 - Shop and Checkout&lt;/b&gt;" style="text;html=1;fontSize=14;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="60" y="660" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_hdr" value="[ categories: All | Fertilizer | Pesticide | Tool | Seed ]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;verticalAlign=middle;fontSize=10;align=left;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="60" y="700" width="620" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_cart" value="Cart (2)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;fontStyle=1;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="700" y="700" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_p1" value="[ img ]&#10;&#10;NPK Fertilizer&#10;Rs. 850" style="dashed=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10;verticalAlign=top;align=left;spacingLeft=8" vertex="1" parent="1">
+          <mxGeometry x="80" y="770" width="190" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_p2" value="[ img ]&#10;&#10;Drip Kit&#10;Rs. 2,500" style="dashed=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10;verticalAlign=top;align=left;spacingLeft=8" vertex="1" parent="1">
+          <mxGeometry x="290" y="770" width="190" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_p3" value="[ img ]&#10;&#10;Pesticide&#10;Rs. 1,200" style="dashed=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10;verticalAlign=top;align=left;spacingLeft=8" vertex="1" parent="1">
+          <mxGeometry x="500" y="770" width="190" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_p4" value="[ img ]&#10;&#10;Seed Pack&#10;Rs. 400" style="dashed=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10;verticalAlign=top;align=left;spacingLeft=8" vertex="1" parent="1">
+          <mxGeometry x="80" y="960" width="190" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_p5" value="[ img ]&#10;&#10;Sprayer&#10;Rs. 3,000" style="dashed=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10;verticalAlign=top;align=left;spacingLeft=8" vertex="1" parent="1">
+          <mxGeometry x="290" y="960" width="190" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_p6" value="[ img ]&#10;&#10;Compost&#10;Rs. 750" style="dashed=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10;verticalAlign=top;align=left;spacingLeft=8" vertex="1" parent="1">
+          <mxGeometry x="500" y="960" width="190" height="170" as="geometry" />
+        </mxCell>
+
+        <mxCell id="wf3_checkout" value="&lt;b&gt;Checkout&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;[ shipping form: full name, address, city, phone ]&lt;br&gt;[ payment: &amp;#9679; COD   &amp;#9675; eSewa ]&lt;br&gt;[ order summary ]&lt;br&gt;[ Place Order button ]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;verticalAlign=top;align=left;spacingLeft=10;fontSize=10;spacing=8" vertex="1" parent="1">
+          <mxGeometry x="820" y="700" width="340" height="430" as="geometry" />
+        </mxCell>
+
+        <!-- ============ WIREFRAME 4: ADMIN DASHBOARD ============ -->
+        <mxCell id="wf4_title" value="&lt;b&gt;Wireframe 4 - Admin Dashboard&lt;/b&gt;" style="text;html=1;fontSize=14;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="1200" y="660" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wf4_side" value="&lt;b&gt;ADMIN NAV&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;Dashboard&lt;br&gt;Users&lt;br&gt;Farmers&lt;br&gt;Products&lt;br&gt;Orders&lt;br&gt;Medicines" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;verticalAlign=top;align=left;spacingLeft=12;spacingRight=12;fontSize=11;spacing=8" vertex="1" parent="1">
+          <mxGeometry x="820" y="700" width="200" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="wf4_hdr" value="Admin Dashboard" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;verticalAlign=middle;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1040" y="700" width="500" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wf4_a1" value="Users&#10;120" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1040" y="780" width="115" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="wf4_a2" value="Products&#10;85" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1165" y="780" width="115" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="wf4_a3" value="Orders&#10;32" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1290" y="780" width="115" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="wf4_a4" value="Pending&#10;Approvals" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1415" y="780" width="115" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="wf4_table" value="[ data table: name / email / status / actions ]&#10;&#10;[ row 1 ]&#10;[ row 2 ]&#10;[ row 3 ]&#10;[ row 4 ]&#10;[ row 5 ]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;verticalAlign=top;align=left;spacingLeft=10;fontSize=10;spacing=6" vertex="1" parent="1">
+          <mxGeometry x="1040" y="870" width="500" height="300" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

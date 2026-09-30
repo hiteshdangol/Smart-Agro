@@ -1,4 +1,5 @@
 const Farmer = require('../models/Farmer');
+const Role = require('../models/Role');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
@@ -25,11 +26,12 @@ exports.registerFarmer = async (req, res) => {
     }
 
     // Create farmer
+    const defaultRole = await Role.findOne({ isDefault: true });
     const farmer = await Farmer.create({
       name: name.trim(),
       email: email.toLowerCase().trim(),
       password,
-      role: role || 'Farmer'
+      role: role || (defaultRole ? defaultRole.name : 'Farmer')
     });
 
     // Generate token
@@ -168,7 +170,7 @@ exports.getFarmerProfile = async (req, res) => {
 
 // Update Farmer Profile
 exports.updateFarmerProfile = async (req, res) => {
-  const { name, email, role, profilePicture } = req.body; // Include 'role' and 'profilePicture'
+  const { name, email, profilePicture } = req.body;
   try {
     const farmer = await Farmer.findById(req.user.id);
     if (!farmer) {
@@ -176,12 +178,42 @@ exports.updateFarmerProfile = async (req, res) => {
     }
     farmer.name = name || farmer.name;
     farmer.email = email || farmer.email;
-    farmer.role = role || farmer.role;
     farmer.profilePicture = profilePicture || farmer.profilePicture;
 
     const updatedFarmer = await farmer.save();
     res.json({ success: true, farmer: updatedFarmer });
   } catch (error) {
     res.status(500).json({ success: false, message: 'Error updating profile data.' });
+  }
+};
+
+// Update Farmer Password
+exports.updatePassword = async (req, res) => {
+  const { currentPassword, newPassword } = req.body;
+  try {
+    if (!currentPassword) {
+      return res.status(400).json({ success: false, message: 'Current password is required.' });
+    }
+    if (!newPassword || newPassword.length < 6) {
+      return res.status(400).json({ success: false, message: 'Password must be at least 6 characters long.' });
+    }
+
+    const farmer = await Farmer.findById(req.user.id).select('+password');
+    if (!farmer) {
+      return res.status(404).json({ success: false, message: 'Farmer not found.' });
+    }
+
+    const isMatch = await farmer.comparePassword(currentPassword);
+    if (!isMatch) {
+      return res.status(400).json({ success: false, message: 'Current password is incorrect.' });
+    }
+
+    farmer.password = newPassword;
+    await farmer.save();
+
+    res.json({ success: true, message: 'Password updated successfully.' });
+  } catch (error) {
+    console.error('Error updating password:', error);
+    res.status(500).json({ success: false, message: 'Error updating password.' });
   }
 };

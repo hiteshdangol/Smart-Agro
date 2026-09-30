@@ -15,17 +15,17 @@ const Footer = () => {
         <div className="footer-contact">
           <p>
             <strong>Email:</strong>{" "}
-            <a href="mailto:ujanmaharjan1901@gmail.com">ujanmaharjan1901@gmail.com/sandesh@gmail.com</a>
+            <a href="mailto:hiteshdangol@gmail.com">hiteshdangol@gmail.com</a>
           </p>
           <p>
             <strong>Phone:</strong>{" "}
-            <a href="tel:+919867076536">+91-9867076536</a>
+            <a href="tel:+977-9860689445">+977-9860689445</a>
           </p>
        
           <p>
             <strong>LinkedIn:</strong>{" "}
-            <a href="https://www.linkedin.com/in/ujan-maharjan-096608381/" target="_blank" rel="noopener noreferrer">
-              Ujan Maharjan
+            <a href="https://www.linkedin.com/in/hitesh-dangol-62415a230/" target="_blank" rel="noopener noreferrer">
+              Hitesh Dangol
             </a>
           </p>
         </div>
@@ -33,7 +33,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="footer-bottom">
           <p>
-            © 2025 Smart Agro. All rights reserved. 🌾
+            © 2026 Smart Agro. All rights reserved. 🌾
             <span className="footer-note"> Happy Farming with Smart Famring System!</span>
           </p>
         </div>

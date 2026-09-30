@@ -4,27 +4,30 @@ const { Server } = require('socket.io');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const helmet = require('helmet');
-const multer = require('multer');
 const morgan = require('morgan');
 const path = require('path');
 const connectDb = require('./config/db');
 const pestAlertRoute = require('./routes/pestAlertRoute');
 const cropRecommendationRoute = require('./routes/cropRecommendationRoute');
-
-
-
+const diseaseRoute = require('./routes/diseaseRoute');
+const medicineRoutes = require('./routes/medicineRoutes');
 
 const manualAutomationRoutes = require('./routes/manualAutomationRoutes');
 // Import Routes
 const authRoutes = require('./routes/authRoutes');
 const pestAlertRoutes = require('./routes/pestAlertRoute');
 const recordRoutes = require('./routes/recordRoutes');
+const productRoutes = require('./routes/productRoutes');
+const orderRoutes = require('./routes/orderRoutes');
+const roleRoutes = require('./routes/roleRoutes');
+const userRoutes = require('./routes/userRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+const wishlistRoutes = require('./routes/wishlistRoutes');
+const Role = require('./models/Role');
+const { DEFAULT_ROLES } = require('./utils/permissions');
 
 // Load environment variables
 dotenv.config();
-
-// Connect to database
-connectDb();
 
 const app = express();
 const server = http.createServer(app); // Create HTTP server
@@ -51,32 +54,6 @@ app.use(
   })
 );
 
-// Configure multer for image uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const uploadDir = path.join(__dirname, 'uploads');
-    cb(null, uploadDir); // Ensure this folder exists
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname); // Generate a unique file name
-  },
-});
-
-const upload = multer({ storage });
-
-// Route for uploading images
-app.post('/api/upload', upload.single('image'), (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ success: false, message: 'No file uploaded' });
-  }
-
-  const imagePath = `/uploads/${req.file.filename}`; // Path for accessing the image
-  res.json({ success: true, image: imagePath });
-});
-
-// Serve uploaded images
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
 // Define routes
 app.use('/api/auth', authRoutes);
 app.use('/api/records', recordRoutes);
@@ -84,10 +61,14 @@ app.use('/api/manual', manualAutomationRoutes);
 app.use('/api/pest-alert', pestAlertRoute);
 app.use("/api", require("./routes/pestAlertRoute"));
 app.use('/api/crop-recommendation', cropRecommendationRoute);
-
-
-
-
+app.use('/api/products', productRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/roles', roleRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/disease', diseaseRoute);
+app.use('/api/medicines', medicineRoutes);
+app.use('/api/wishlist', wishlistRoutes);
 
 // Socket.IO for real-time data
 io.on('connection', (socket) => {
@@ -162,8 +143,26 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const startServer = async () => {
+  await connectDb();
+  const count = await Role.countDocuments();
+  if (count === 0) {
+    await Role.insertMany(DEFAULT_ROLES);
+    console.log('Default roles seeded');
+  } else {
+    for (const def of DEFAULT_ROLES) {
+      await Role.updateOne(
+        { name: def.name },
+        { $addToSet: { permissions: { $each: def.permissions } } },
+        { upsert: true }
+      );
+    }
+    console.log('Default roles synced');
+  }
+  const PORT = process.env.PORT || 5000;
+  server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+};
+startServer();
 
 
 

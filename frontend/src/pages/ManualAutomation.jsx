@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import "../styles/ManualAutomation.css";
 import axios from "axios";
 import { io } from "socket.io-client";
+import { showToast } from "../utils/toast";
 
 const socket = io(process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000');
 
@@ -58,7 +57,8 @@ const ManualAutomation = () => {
   // Handle set timer
   const handleSetTimer = async () => {
     if (!setTime || isNaN(setTime)) {
-      return alert("Enter a valid time in seconds");
+      showToast("Enter a valid time in seconds", "error");
+      return;
     }
 
     setPumpState(true);
@@ -74,7 +74,6 @@ const ManualAutomation = () => {
 
   return (
     <>
-      <Navbar />
       <div className="manual-automation">
         <h1>Manual Automation</h1>
         <p className="description">Manage your pump operation efficiently with manual and timer-based controls.</p>
@@ -115,7 +114,6 @@ const ManualAutomation = () => {
           </ol>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" modified="2026-08-01T00:00:00.000Z" agent="opencode" version="24.0.0" type="device">
+  <diagram id="wireframe-disease" name="Wireframe - Disease Recognition Page">
+    <mxGraphModel dx="1200" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="820" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="&lt;b&gt;WIREFRAME - DISEASE RECOGNITION PAGE&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="500" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="side" value="&lt;b&gt;NAV&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;Dashboard&lt;br&gt;Records&lt;br&gt;Crop Recommendation&lt;br&gt;Pest Risk&lt;br&gt;Disease&lt;br&gt;Shop&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;Profile&lt;br&gt;Logout" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;verticalAlign=top;align=left;spacingLeft=12;spacingRight=12;fontSize=11;spacing=8" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="200" height="620" as="geometry" />
+        </mxCell>
+        <mxCell id="frame" value="Disease Recognition" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;verticalAlign=middle;fontSize=12;fontStyle=1;spacing=8" vertex="1" parent="1">
+          <mxGeometry x="280" y="100" width="860" height="620" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr" value="Disease Recognition" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;verticalAlign=middle;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="120" width="820" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="upload_frame" value="&lt;b&gt;Upload Leaf Image&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;verticalAlign=top;fontSize=11;fontStyle=1;spacing=8" vertex="1" parent="1">
+          <mxGeometry x="300" y="190" width="380" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="img_box" value="[ leaf image preview / drag &amp; drop ]" style="dashed=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11;verticalAlign=middle" vertex="1" parent="1">
+          <mxGeometry x="315" y="220" width="350" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="choose_btn" value="Choose Image" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;fontStyle=1;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="315" y="410" width="350" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hint" value="[ jpeg / png, max 10 MB ]" style="text;html=1;fontSize=10;align=center" vertex="1" parent="1">
+          <mxGeometry x="315" y="455" width="350" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="result_frame" value="&lt;b&gt;Result&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&lt;b&gt;Recognized:&lt;/b&gt; Tomato___Late_blight&lt;br&gt;&lt;b&gt;Confidence:&lt;/b&gt; 96.4%&lt;br&gt;&lt;br&gt;&lt;b&gt;Top 3 predictions:&lt;/b&gt;&lt;br&gt;1. Tomato___Late_blight - 96.4%&lt;br&gt;2. Tomato___Early_blight - 2.1%&lt;br&gt;3. Tomato___healthy - 1.5%&lt;br&gt;&lt;br&gt;&lt;b&gt;Cause:&lt;/b&gt; Phytophthora infestans...&lt;br&gt;&lt;b&gt;Cure:&lt;/b&gt; Apply copper-based fungicide...&lt;br&gt;&lt;br&gt;&lt;b&gt;Matching medicines:&lt;/b&gt;&lt;br&gt;1. Fungicide X (Rs. 450)&lt;br&gt;2. Fungicide Y (Rs. 380)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;verticalAlign=top;align=left;spacingLeft=10;fontSize=10;spacing=8" vertex="1" parent="1">
+          <mxGeometry x="700" y="190" width="420" height="320" as="geometry" />
+        </mxCell>
+
+        <mxCell id="save_btn" value="Save Record" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;fontStyle=1;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="300" y="530" width="180" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="shop_btn" value="View Related Products" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;fontStyle=1;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="500" y="530" width="240" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="[ confidence &lt; 0.5 =&gt; Unrecognized ]" style="text;html=1;fontSize=10;align=left" vertex="1" parent="1">
+          <mxGeometry x="300" y="600" width="640" height="25" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

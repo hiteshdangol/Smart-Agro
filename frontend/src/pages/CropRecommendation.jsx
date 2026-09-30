@@ -1,9 +1,8 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import axiosInstance from '../utils/axiosInstance';
 import '../styles/CropRecommendation.css';
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 const CropRecommendation = () => {
   const [formData, setFormData] = useState({
@@ -19,12 +18,15 @@ const CropRecommendation = () => {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [saved, setSaved] = useState(false);
+
+  const sanitizeNumber = (value) => value.replace(/^(-)?0+(?=\d)/, '$1');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: parseFloat(value) || 0
+      [name]: sanitizeNumber(value)
     }));
   };
 
@@ -34,9 +36,22 @@ const CropRecommendation = () => {
     setError(null);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/crop-recommendation/recommend', formData);
-      console.log("response: ",response)
+      const payload = Object.fromEntries(
+        Object.entries(formData).map(([key, val]) => [key, parseFloat(val)])
+      );
+      const response = await axios.post('http://localhost:5000/api/crop-recommendation/recommend', payload);
       setResult(response.data);
+      try {
+        await axiosInstance.post('/records', {
+          type: 'recommendation',
+          soilParams: { N: parseFloat(formData.N), P: parseFloat(formData.P), K: parseFloat(formData.K), ph: parseFloat(formData.ph) },
+          climateParams: { temperature: parseFloat(formData.temperature), humidity: parseFloat(formData.humidity), rainfall: parseFloat(formData.rainfall) },
+          recommendedCrop: response.data.recommendation.predicted_crop,
+          recommendationConfidence: response.data.recommendation.confidence,
+          recommendationWarning: response.data.warning || null,
+        });
+        setSaved(true);
+      } catch {}
     } catch (err) {
       console.error('Error:', err);
       setError(err.response?.data?.error || 'Failed to get crop recommendation');
@@ -49,16 +64,16 @@ const CropRecommendation = () => {
     setFormData({
       N: 50, P: 40, K: 35, temperature: 25, humidity: 70, ph: 6.8, rainfall: 180
     });
-    setResult(null);
-    setError(null);
+      setResult(null);
+      setError(null);
+      setSaved(false);
   };
 
   return (
      <>
-          <Navbar />
     <div className="crop-recommendation-container">
       <div className="header">
-        <h1 className="main-title">🌱 Smart Crop Recommendation System</h1>
+        <h1 className="main-title">Crop Recommendation</h1>
         <p className="subtitle">AI-powered crop suggestions based on soil and climate conditions</p>
       </div>
 
@@ -79,6 +94,7 @@ const CropRecommendation = () => {
                   className="input-control"
                   step="0.1"
                   min="0"
+                  max="200"
                   required
                 />
                 <span className="input-hint">Ideal: 20-80</span>
@@ -94,6 +110,7 @@ const CropRecommendation = () => {
                   className="input-control"
                   step="0.1"
                   min="0"
+                  max="150"
                   required
                 />
                 <span className="input-hint">Ideal: 30-70</span>
@@ -109,6 +126,7 @@ const CropRecommendation = () => {
                   className="input-control"
                   step="0.1"
                   min="0"
+                  max="100"
                   required
                 />
                 <span className="input-hint">Ideal: 30-60</span>
@@ -124,8 +142,8 @@ const CropRecommendation = () => {
                 onChange={handleInputChange}
                 className="input-control"
                 step="0.1"
-                min="0"
-                max="14"
+                min="3"
+                max="10"
                 required
               />
               <span className="input-hint">Ideal: 6.0-7.5</span>
@@ -142,6 +160,8 @@ const CropRecommendation = () => {
                   onChange={handleInputChange}
                   className="input-control"
                   step="0.1"
+                  min="-50"
+                  max="50"
                   required
                 />
               </div>
@@ -171,6 +191,7 @@ const CropRecommendation = () => {
                   className="input-control"
                   step="0.1"
                   min="0"
+                  max="500"
                   required
                 />
               </div>
@@ -205,16 +226,29 @@ const CropRecommendation = () => {
           )}
 
           {result && (
-            <div style={{ marginTop: '20px', padding: '15px', backgroundColor: '#f8f9fa', borderRadius: '8px' }}>
-              <h3>Recommendation Result:</h3>
+            <div className="recommendation-result-card">
+              {saved && <div className="disease-saved-badge">✓ Saved to Records</div>}
+              <h3>Recommendation Result</h3>
+              {result.warning && (
+                <div className="crop-warning-banner">
+                  <span className="crop-warning-icon">⚠️</span>
+                  <div>
+                    <strong>Unreliable recommendation:</strong> {result.warning.message}
+                  </div>
+                </div>
+              )}
               <p><strong>Recommended Crop:</strong> {result.recommendation.predicted_crop}</p>
-              <p><strong>Confidence:</strong> {result.recommendation.confidence}%</p>
+              <p>
+                <strong>Confidence:</strong>{' '}
+                {result.warning
+                  ? <span className="crop-unreliable-label">unreliable — temperature outside model range</span>
+                  : `${result.recommendation.confidence}%`}
+              </p>
             </div>
           )}
         </div>
       </div>
     </div>
-    <Footer />
     </>
   );
 };

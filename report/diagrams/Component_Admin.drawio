@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" modified="2026-08-01T00:00:00.000Z" agent="opencode" version="24.0.0" type="device">
+  <diagram id="component-admin" name="Component Diagram - Admin">
+    <mxGraphModel dx="1500" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="950" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="&lt;b&gt;COMPONENT DIAGRAM - ADMIN SIDE&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="520" y="20" width="460" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="c_admfe" value="&lt;b&gt;&amp;#171;SPA&amp;#187; React Admin Frontend&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;AdminLayout (sidebar)&lt;br&gt;AdminRoute guard (JWT + role)&lt;br&gt;AdminDashbaord (stat cards)&lt;br&gt;AdminUsers / AdminFarmers&lt;br&gt;AdminProducts / AdminOrders&lt;br&gt;AdminMedicines&lt;br&gt;RoleFormModal (role CRUD)&lt;br&gt;UserPermissionModal (overrides)&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;axiosInstance (with token)" style="shape=component;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11;verticalAlign=top;align=left;spacingLeft=10;spacingRight=10" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="300" height="330" as="geometry" />
+        </mxCell>
+
+        <mxCell id="c_admbe" value="&lt;b&gt;&amp;#171;REST&amp;#187; Express Admin Backend&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;adminRoutes (admin:access)&lt;br&gt;adminController: getFarmers,&lt;br&gt;&amp;nbsp;&amp;nbsp;toggleBlockUser, verifyFarmer,&lt;br&gt;&amp;nbsp;&amp;nbsp;approveProduct, medicine CRUD&lt;br&gt;roleController (users:manage_role)&lt;br&gt;userController (permission override)&lt;br&gt;orderController (manage orders)" style="shape=component;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11;verticalAlign=top;align=left;spacingLeft=10;spacingRight=10" vertex="1" parent="1">
+          <mxGeometry x="620" y="120" width="300" height="300" as="geometry" />
+        </mxCell>
+
+        <mxCell id="c_rbac" value="&lt;b&gt;&amp;#171;Middleware&amp;#187; RBAC&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;authMiddleware (verify JWT)&lt;br&gt;permissionMiddleware (requirePermission)&lt;br&gt;requireActive (blocked check)&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;Permissions from permissions.js:&lt;br&gt;admin:access, users:view, users:delete,&lt;br&gt;users:manage_role, users:manage_permissions,&lt;br&gt;medicines:manage, orders:manage_all, ..." style="shape=component;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10;verticalAlign=top;align=left;spacingLeft=10;spacingRight=10" vertex="1" parent="1">
+          <mxGeometry x="80" y="560" width="300" height="230" as="geometry" />
+        </mxCell>
+
+        <mxCell id="c_admmongo" value="&lt;b&gt;&amp;#171;DB&amp;#187; MongoDB collections&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;users (farmers) + roles&lt;br&gt;products (approvalStatus)&lt;br&gt;orders (status/payment)&lt;br&gt;medicines (diseaseName)" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="1100" y="120" width="230" height="170" as="geometry" />
+        </mxCell>
+
+        <mxCell id="c_admaudit" value="&lt;b&gt;&amp;#171;View&amp;#187; Admin Dashboard reports&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;farmer list with product counts&lt;br&gt;recent records (getAllCrop)&lt;br&gt;order overview&lt;br&gt;medicine database search" style="shape=component;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11;verticalAlign=top;align=left;spacingLeft=10;spacingRight=10" vertex="1" parent="1">
+          <mxGeometry x="1100" y="560" width="230" height="190" as="geometry" />
+        </mxCell>
+
+        <!-- Connectors -->
+        <mxCell id="n1" value="&lt;i&gt;REST/JSON (JWT + RBAC)&lt;/i&gt;" style="html=1;endArrow=block;strokeWidth=1.5;fontSize=11;fontStyle=2" edge="1" parent="1" source="c_admfe" target="c_admbe"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="n2" value="&lt;i&gt;enforces&lt;/i&gt;" style="html=1;endArrow=block;strokeWidth=1.5;fontSize=11;fontStyle=2" edge="1" parent="1" source="c_rbac" target="c_admbe"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="n3" value="&lt;i&gt;Mongoose ODM&lt;/i&gt;" style="html=1;endArrow=block;strokeWidth=1.5;fontSize=11;fontStyle=2" edge="1" parent="1" source="c_admbe" target="c_admmongo"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="n4" value="&lt;i&gt;queries / aggregates&lt;/i&gt;" style="html=1;endArrow=block;strokeWidth=1.5;fontSize=11;fontStyle=2" edge="1" parent="1" source="c_admbe" target="c_admaudit"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="n5" value="&lt;i&gt;render (HTTP)&lt;/i&gt;" style="html=1;endArrow=block;strokeWidth=1.5;fontSize=11;fontStyle=2" edge="1" parent="1" source="c_admfe" target="c_admaudit"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="legend" value="&lt;b&gt;RBAC FLOW&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;Request &amp;#8594; authMiddleware (JWT) &amp;#8594;&lt;br&gt;permissionMiddleware (role + override) &amp;#8594;&lt;br&gt;controller &amp;#8594; model.&lt;br&gt;Permissions resolved from user role &amp;#8746; overrides." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="620" y="600" width="340" height="130" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -30,6 +30,24 @@ router.post("/recommend", async (req, res) => {
       rainfall: parseFloat(req.body.rainfall)
     };
 
+    // Range validation matching the Python model constraints
+    const ranges = [
+      { key: 'N', label: 'Nitrogen (N)', min: 0, max: 200 },
+      { key: 'P', label: 'Phosphorus (P)', min: 0, max: 150 },
+      { key: 'K', label: 'Potassium (K)', min: 0, max: 100 },
+      { key: 'temperature', label: 'Temperature', min: -50, max: 50 },
+      { key: 'humidity', label: 'Humidity', min: 0, max: 100 },
+      { key: 'ph', label: 'Soil pH', min: 3, max: 10 },
+      { key: 'rainfall', label: 'Rainfall', min: 0, max: 500 },
+    ];
+    const outOfRange = ranges.find(r => !(payload[r.key] >= r.min && payload[r.key] <= r.max));
+    if (outOfRange) {
+      return res.status(400).json({
+        success: false,
+        error: `${outOfRange.label} must be between ${outOfRange.min} and ${outOfRange.max}.`,
+      });
+    }
+
     console.log("Sending to KNN service:", payload);
 
     // Call Python KNN service
@@ -42,10 +60,17 @@ router.post("/recommend", async (req, res) => {
       analysis: {
         soil_analysis: analyzeSoilConditions(payload),
         climate_analysis: analyzeClimateConditions(payload),
-        recommendations: generateFarmingTips(data.prediction.recommended_crop, payload)
+        recommendations: generateFarmingTips(data.prediction.predicted_crop, payload)
       },
       timestamp: new Date().toISOString()
     };
+
+    // Flag out-of-range temperature: the model was trained on ~8.8-43.7 degC,
+    // so values far outside that range produce unreliable predictions.
+    const temperatureWarning = getTemperatureWarning(payload.temperature);
+    if (temperatureWarning) {
+      enhancedResponse.warning = temperatureWarning;
+    }
 
     res.json(enhancedResponse);
 
@@ -56,8 +81,20 @@ router.post("/recommend", async (req, res) => {
     if (err.code === 'ECONNREFUSED') {
       return res.status(503).json({
         success: false,
-        error: "KNN service unavailable. Please ensure Python service is running on port 5002.",
+        error: "KNN service unavailable. Please ensure Python service is running on port 5003.",
         service_status: "offline"
+      });
+    }
+
+    // Pydantic validation failure (422) - surface the human-readable detail
+    if (err.response?.status === 422) {
+      const detail = err.response.data?.detail;
+      const messages = Array.isArray(detail)
+        ? detail.map(d => d.msg).join(", ")
+        : (detail || "Invalid input values");
+      return res.status(400).json({
+        success: false,
+        error: `Invalid input: ${messages}`
       });
     }
 
@@ -100,7 +137,7 @@ router.post("/retrain", async (req, res) => {
     const { k } = req.body;
     const payload = k ? { k: parseInt(k) } : {};
 
-    const { data } = await axios.post("http://127.0.0.1:5002/retrain", payload);
+    const { data } = await axios.post("http://127.0.0.1:5003/retrain", payload);
     
     res.json({
       success: true,
@@ -120,7 +157,7 @@ router.post("/retrain", async (req, res) => {
 // Route to check KNN service health
 router.get("/health", async (req, res) => {
   try {
-    const { data } = await axios.get("http://127.0.0.1:5002/health");
+    const { data } = await axios.get("http://127.0.0.1:5003/health");
     
     res.json({
       success: true,
@@ -137,6 +174,20 @@ router.get("/health", async (req, res) => {
     });
   }
 });
+
+// Helper function to check if temperature is outside the model's training range
+function getTemperatureWarning(temperature) {
+  const MIN_TEMP = -20;
+  const MAX_TEMP = 43;
+  if (temperature < MIN_TEMP || temperature > MAX_TEMP) {
+    return {
+      temperature_out_of_range: true,
+      training_range: '-20 - 43 °C',
+      message: `Temperature (${temperature}°C) is outside the model's training range (-20 - 43 °C). The recommendation may be unreliable.`
+    };
+  }
+  return null;
+}
 
 // Helper function to analyze soil conditions
 function analyzeSoilConditions({ N, P, K, ph }) {
@@ -240,6 +291,22 @@ function generateFarmingTips(crop, conditions) {
       'Avoid waterlogged conditions',
       'Apply phosphorus and potassium before sowing',
       'Monitor for pod borer during flowering'
+    ],
+    'wheat': [
+      'Plant in well-drained, fertile soil with pH 6.0-7.5',
+      'Sow seeds 2-3 cm deep with 20-25 cm row spacing',
+      'Apply nitrogen in split doses - at sowing and tillering stage',
+      'Irrigate at critical stages: crown root, tillering, jointing, flowering',
+      'Monitor for rust diseases and aphids in cool weather',
+      'Harvest when grain is hard and moisture is below 14%'
+    ],
+    'barley': [
+      'Plant in well-drained soil with pH 6.0-8.0',
+      'Sow seeds 2-4 cm deep with 18-22 cm row spacing',
+      'Barley is more drought-tolerant than wheat - avoid overwatering',
+      'Apply balanced NPK fertilizer at sowing time',
+      'Monitor for net blotch and powdery mildew',
+      'Harvest when kernels are firm and golden brown'
     ]
   };
 

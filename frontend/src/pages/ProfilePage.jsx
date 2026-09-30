@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import axiosInstance from '../utils/axiosInstance';
+import { showToast } from '../utils/toast';
 import '../styles/ProfilePage.css';
 
 function ProfilePage() {
@@ -14,6 +13,7 @@ function ProfilePage() {
 
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [currentPassword, setCurrentPassword] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [updatedFarmer, setUpdatedFarmer] = useState({ ...farmer });
   const [imagePreview, setImagePreview] = useState(null);
@@ -50,26 +50,36 @@ function ProfilePage() {
       const response = await axiosInstance.put('/auth/profile', updatedFarmer);
       setFarmer(response.data.farmer);
       setIsEditing(false);
-      alert('Profile updated successfully!');
+      showToast('Profile updated successfully!', 'success');
     } catch (error) {
       console.error('Error updating profile:', error);
-      alert('Failed to update profile.');
+      showToast('Failed to update profile.', 'error');
     }
   };
 
   const handlePasswordUpdate = async () => {
+    if (!currentPassword) {
+      showToast('Please enter your current password.', 'error');
+      return;
+    }
+    if (password.length < 6) {
+      showToast('Password must be at least 6 characters long.', 'error');
+      return;
+    }
     if (password !== confirmPassword) {
-      alert('Passwords do not match!');
+      showToast('Passwords do not match!', 'error');
       return;
     }
     try {
-      await axiosInstance.put('/auth/update-password', { password });
-      alert('Password updated successfully!');
+      await axiosInstance.put('/auth/update-password', { currentPassword, newPassword: password });
+      showToast('Password updated successfully!', 'success');
       setPassword('');
       setConfirmPassword('');
+      setCurrentPassword('');
     } catch (error) {
       console.error('Error updating password:', error);
-      alert('Failed to update password.');
+      const msg = error.response?.data?.message || 'Failed to update password.';
+      showToast(msg, 'error');
     }
   };
 
@@ -81,22 +91,21 @@ function ProfilePage() {
 
     try {
       await axiosInstance.delete('/auth/delete-account');
-      alert('Account deleted successfully!');
+      showToast('Account deleted successfully!', 'success');
       window.location.href = '/login'; // Redirect after deletion
     } catch (error) {
       console.error('Error deleting account:', error);
-      alert('Failed to delete account.');
+      showToast('Failed to delete account.', 'error');
     }
   };
 
   return (
     <>
-      <Navbar />
-      <div className="profile-container">
-        <div className="profile-content">
-          <h1 className="profile-heading">👤 Your Profile</h1>
+      <div className="profile-page">
+        <h1>Your Profile</h1>
+        <div className="profile-content bento-grid">
           {/* Profile Card */}
-          <div className="profile-card">
+          <div className="profile-card bento-cell">
             <img
               src={imagePreview || 'https://via.placeholder.com/150'}
               alt="Profile"
@@ -107,7 +116,7 @@ function ProfilePage() {
                 <p><strong>Name:</strong> {farmer.name}</p>
                 <p><strong>Email:</strong> {farmer.email}</p>
                 <p><strong>Role:</strong> {farmer.role}</p>
-                <button className="edit-button" onClick={() => setIsEditing(true)}>
+                <button className="btn btn-primary" onClick={() => setIsEditing(true)}>
                   Edit Profile
                 </button>
               </div>
@@ -133,17 +142,25 @@ function ProfilePage() {
                     onChange={(e) => setUpdatedFarmer({ ...updatedFarmer, email: e.target.value })}
                   />
                 </label>
-                <button className="save-button" onClick={handleUpdateProfile}>Save</button>
-                <button className="cancel-button" onClick={() => setIsEditing(false)}>Cancel</button>
+                <button className="btn btn-primary btn-sm" onClick={handleUpdateProfile}>Save</button>
+                <button className="btn btn-secondary btn-sm" onClick={() => setIsEditing(false)}>Cancel</button>
               </div>
             )}
           </div>
 
           {/* Account Settings */}
-          <section className="account-settings">
+          <section className="account-settings bento-cell">
             <h2>⚙️ Account Settings</h2>
             <div className="password-update">
               <h3>Update Password</h3>
+              <label>
+                Current Password:
+                <input
+                  type="password"
+                  value={currentPassword}
+                  onChange={(e) => setCurrentPassword(e.target.value)}
+                />
+              </label>
               <label>
                 New Password:
                 <input
@@ -160,13 +177,13 @@ function ProfilePage() {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </label>
-              <button className="update-button" onClick={handlePasswordUpdate}>
+              <button className="btn btn-primary" onClick={handlePasswordUpdate}>
                 Update Password
               </button>
             </div>
             <div className="account-delete">
               <h3>Delete Account</h3>
-              <button className="delete-button" onClick={handleAccountDeletion}>
+              <button className="btn btn-danger" onClick={handleAccountDeletion}>
                 Delete Account
               </button>
             </div>
@@ -175,7 +192,6 @@ function ProfilePage() {
         
         </div>
       </div>
-      <Footer />
     </>
   );
 }

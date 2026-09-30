@@ -1,57 +1,83 @@
-/* Navbar Styling */
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #4caf50; /* Fresh green background */
-  padding: 15px 30px;
-  margin-bottom: 10px;
-  color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
-  border-radius: 10px;
+  padding: 0.75rem 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(46, 204, 113, 0.15);
+  box-shadow: 0 4px 24px rgba(46, 204, 113, 0.06);
+  margin-bottom: 0;
+  transition: var(--transition);
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
+  gap: 0.75rem;
 }
 
 .navbar-logo-image {
-  width: 40px; /* Slightly smaller logo */
+  width: 40px;
   height: 40px;
-  margin-right: 12px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 12px rgba(46, 204, 113, 0.2);
 }
 
 .navbar-logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: white;
-  letter-spacing: 2px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--primary), var(--primary-deeper));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .nav-links {
   display: flex;
-  gap: 30px;
   align-items: center;
+  gap: 0.25rem;
   transition: all 0.3s ease;
 }
 
 .nav-link {
-  color: white;
+  color: var(--text-secondary);
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 1px;
+  transition: var(--transition);
 }
 
 .nav-link:hover {
-  color: #e0e0e0; /* Light hover effect */
-  transform: scale(1.05);
+  color: var(--primary-dark);
+  background: var(--primary-light);
 }
 
-.nav-links a:active {
-  transform: scale(0.98);
+.nav-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 .navbar-dropdown {
@@ -59,59 +85,55 @@
 }
 
 .dropdown-toggle {
-  display: none;
-  font-size: 35px;
-  color: white;
-  background: none;
-  border: none;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: var(--transition-fast);
+  line-height: 1;
 }
 
 .dropdown-toggle:hover {
-  transform: rotate(90deg);
+  background: var(--glass-bg-strong);
+  border-color: var(--primary);
 }
 
-/* Mobile View */
 @media (max-width: 768px) {
+  .navbar {
+    padding: 0.6rem 1rem;
+  }
+
   .nav-links {
-    display: none; /* Hide links initially on small screens */
-    position: absolute;
-    top: 80px;
-    right: 20px;
-    background-color: #4caf50;
-    border-radius: 8px;
-    padding: 20px;
-    width: 80%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: none;
     flex-direction: column;
-    align-items: flex-start;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0.75rem;
+    gap: 0.15rem;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
   }
 
   .nav-links.open {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
   }
 
   .nav-link {
-    padding: 10px 20px;
-    font-size: 1.3rem;
+    padding: 0.6rem 1rem;
     width: 100%;
-    text-align: left;
   }
 
   .navbar-dropdown {
     display: block;
   }
-
-  .dropdown-toggle {
-    display: block;
-  }
-}
-
-/* Add transition effects for smoother toggling */
-.nav-links.open {
-  opacity: 1;
-  visibility: visible;
 }

@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" modified="2026-08-01T00:00:00.000Z" agent="opencode" version="24.0.0" type="device">
+  <diagram id="object-diagram" name="Object Diagram">
+    <mxGraphModel dx="1500" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="&lt;b&gt;OBJECT DIAGRAM - SMART AGRO SYSTEM (runtime snapshot)&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="420" y="20" width="660" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obFarmer" value="&lt;u&gt;farmer1 : Farmer&lt;/u&gt;&lt;hr size=&quot;1&quot;&gt;name = &quot;Ramesh Sharma&quot;&lt;br&gt;email = &quot;ramesh@agro.com&quot;&lt;br&gt;role = &quot;Farmer&quot;&lt;br&gt;farmName = &quot;Green Valley Farm&quot;&lt;br&gt;location = &quot;Kathmandu, Nepal&quot;&lt;br&gt;verificationStatus = &quot;verified&quot;&lt;br&gt;isBlocked = false" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="100" y="150" width="280" height="170" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obRole" value="&lt;u&gt;roleFarmer : Role&lt;/u&gt;&lt;hr size=&quot;1&quot;&gt;name = &quot;Farmer&quot;&lt;br&gt;permissions = [products:view,&lt;br&gt;&amp;nbsp;&amp;nbsp;products:create, orders:create,&lt;br&gt;&amp;nbsp;&amp;nbsp;records:add, records:view_own, ...]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="100" y="470" width="280" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obRecord" value="&lt;u&gt;record1 : Record&lt;/u&gt;&lt;hr size=&quot;1&quot;&gt;type = &quot;disease&quot;&lt;br&gt;diseaseName = &quot;Tomato___Early_blight&quot;&lt;br&gt;confidence = 94.2&lt;br&gt;medicines = [Mancozeb 75% WP]&lt;br&gt;farmerId = farmer1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="620" y="150" width="280" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obOrder" value="&lt;u&gt;order1 : Order&lt;/u&gt;&lt;hr size=&quot;1&quot;&gt;buyer = farmer1&lt;br&gt;items = [item1, item2]&lt;br&gt;totalAmount = Rs. 4,200&lt;br&gt;status = &quot;pending&quot;&lt;br&gt;paymentMethod = &quot;cod&quot;&lt;br&gt;paymentStatus = &quot;unpaid&quot;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="620" y="470" width="280" height="160" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obProduct1" value="&lt;u&gt;product1 : Product&lt;/u&gt;&lt;hr size=&quot;1&quot;&gt;name = &quot;NPK Fertilizer&quot;&lt;br&gt;price = Rs. 850&lt;br&gt;category = &quot;Fertilizer&quot;&lt;br&gt;stock = 120&lt;br&gt;seller = farmer1&lt;br&gt;approvalStatus = &quot;approved&quot;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1140" y="150" width="280" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obProduct2" value="&lt;u&gt;product2 : Product&lt;/u&gt;&lt;hr size=&quot;1&quot;&gt;name = &quot;Drip Irrigation Kit&quot;&lt;br&gt;price = Rs. 2,500&lt;br&gt;category = &quot;Tool&quot;&lt;br&gt;stock = 40&lt;br&gt;seller = farmer1&lt;br&gt;approvalStatus = &quot;approved&quot;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1140" y="420" width="280" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obItem1" value="&lt;u&gt;item1 : OrderItem&lt;/u&gt;&lt;hr size=&quot;1&quot;&gt;product = product1&lt;br&gt;name = &quot;NPK Fertilizer&quot;&lt;br&gt;price = 850&lt;br&gt;quantity = 2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="620" y="760" width="280" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obItem2" value="&lt;u&gt;item2 : OrderItem&lt;/u&gt;&lt;hr size=&quot;1&quot;&gt;product = product2&lt;br&gt;name = &quot;Drip Irrigation Kit&quot;&lt;br&gt;price = 2500&lt;br&gt;quantity = 1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1000" y="760" width="280" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Links -->
+        <mxCell id="l1" value="&lt;i&gt;plays&lt;/i&gt;" style="html=1;endArrow=none;startArrow=none;strokeWidth=1.5;fontSize=11;fontStyle=2" edge="1" parent="1" source="obFarmer" target="obRole">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2" value="&lt;i&gt;has created&lt;/i&gt;" style="html=1;endArrow=none;startArrow=none;strokeWidth=1.5;fontSize=11;fontStyle=2" edge="1" parent="1" source="obFarmer" target="obRecord">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l3" value="&lt;i&gt;places&lt;/i&gt;" style="html=1;endArrow=none;startArrow=none;strokeWidth=1.5;fontSize=11;fontStyle=2" edge="1" parent="1" source="obFarmer" target="obOrder">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l4" value="&lt;i&gt;sells&lt;/i&gt;" style="html=1;endArrow=none;startArrow=none;strokeWidth=1.5;fontSize=11;fontStyle=2" edge="1" parent="1" source="obFarmer" target="obProduct1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l5" value="&lt;i&gt;contains&lt;/i&gt;" style="html=1;endArrow=none;startArrow=none;strokeWidth=1.5;fontSize=11;fontStyle=2" edge="1" parent="1" source="obOrder" target="obItem1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l6" value="&lt;i&gt;contains&lt;/i&gt;" style="html=1;endArrow=none;startArrow=none;strokeWidth=1.5;fontSize=11;fontStyle=2" edge="1" parent="1" source="obOrder" target="obItem2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l7" value="&lt;i&gt;references&lt;/i&gt;" style="html=1;endArrow=none;startArrow=none;strokeWidth=1.5;fontSize=11;fontStyle=2" edge="1" parent="1" source="obItem1" target="obProduct1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l8" value="&lt;i&gt;references&lt;/i&gt;" style="html=1;endArrow=none;startArrow=none;strokeWidth=1.5;fontSize=11;fontStyle=2" edge="1" parent="1" source="obItem2" target="obProduct2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

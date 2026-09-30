@@ -21,7 +21,7 @@ class CropInput(BaseModel):
     N: float = Field(..., ge=0, le=200, description="Nitrogen content (0-200)")
     P: float = Field(..., ge=0, le=150, description="Phosphorous content (0-150)")
     K: float = Field(..., ge=0, le=100, description="Potassium content (0-100)")
-    temperature: float = Field(..., ge=0, le=50, description="Temperature in Celsius (0-50)")
+    temperature: float = Field(..., ge=-50, le=50, description="Temperature in Celsius (-50-50)")
     humidity: float = Field(..., ge=0, le=100, description="Relative humidity percentage (0-100)")
     ph: float = Field(..., ge=3, le=10, description="pH value of soil (3-10)")
     rainfall: float = Field(..., ge=0, le=500, description="Rainfall in mm (0-500)")
@@ -105,22 +105,22 @@ class CropRecommendationSystem:
         try:
             if os.path.exists(filepath):
                 df = pd.read_csv(filepath)
-                print(f"✅ Loaded dataset with {len(df)} samples")
-                print(f"✅ Available crops: {sorted(df['label'].unique().tolist())}")
-                print(f"✅ Dataset shape: {df.shape}")
-                print(f"✅ Dataset columns: {df.columns.tolist()}")
+                print(f"[YES] Loaded dataset with {len(df)} samples")
+                print(f"[YES] Available crops: {sorted(df['label'].unique().tolist())}")
+                print(f"[YES] Dataset shape: {df.shape}")
+                print(f"[YES] Dataset columns: {df.columns.tolist()}")
                 
                 # Check for missing values
                 if df.isnull().sum().sum() > 0:
-                    print(f"⚠️ Missing values found: {df.isnull().sum()}")
+                    print(f"[WARN] Missing values found: {df.isnull().sum()}")
                     df = df.dropna()
-                    print(f"✅ After removing missing values: {len(df)} samples")
+                    print(f"[YES] After removing missing values: {len(df)} samples")
                 
                 return df
             else:
                 raise FileNotFoundError(f"Dataset file '{filepath}' not found!")
         except Exception as e:
-            print(f"❌ Error loading dataset: {e}")
+            print(f"[NO] Error loading dataset: {e}")
             raise e
     
     def train_model(self, model_type='random_forest'):
@@ -170,8 +170,8 @@ class CropRecommendationSystem:
         y_pred = self.model.predict(X_test_scaled)
         accuracy = accuracy_score(y_test, y_pred)
         
-        print(f"✅ {model_type.upper()} model trained with accuracy: {accuracy:.3f}")
-        print(f"✅ Total crops in dataset: {len(self.crop_names)}")
+        print(f"[YES] {model_type.upper()} model trained with accuracy: {accuracy:.3f}")
+        print(f"[YES] Total crops in dataset: {len(self.crop_names)}")
         
         # Feature importance (for Random Forest)
         if hasattr(self.model, 'feature_importances_'):
@@ -179,9 +179,9 @@ class CropRecommendationSystem:
                 'feature': self.feature_names,
                 'importance': self.model.feature_importances_
             }).sort_values('importance', ascending=False)
-            print("\n📊 Feature Importance:")
+            print("\n[DATA] Feature Importance:")
             for _, row in feature_importance.iterrows():
-                print(f"   {row['feature']}: {row['importance']:.3f}")
+                print(f" {row['feature']}: {row['importance']:.3f}")
         
         return accuracy
     
@@ -245,7 +245,7 @@ class CropRecommendationSystem:
             predicted_crop=predicted_crop,
             confidence=round(confidence, 2),
             top_recommendations=top_recommendations,
-            all_probabilities=crop_probabilities[:10],  # Top 10
+            all_probabilities=crop_probabilities[:10], # Top 10
             input_conditions=input_data,
             growing_tips=self._get_growing_tips(predicted_crop, input_data)
         )
@@ -257,34 +257,50 @@ class CropRecommendationSystem:
         # Crop-specific tips
         crop_tips = {
             'rice': [
-                "🌾 Ensure adequate water supply - rice needs flooded fields",
-                "🌡️ Optimal temperature range: 20-35°C",
-                "💧 Maintain 80-85% humidity during growing season",
-                "🌱 Plant during monsoon season for best results"
+                " Ensure adequate water supply - rice needs flooded fields",
+                " Optimal temperature range: 20-35 degC",
+                " Maintain 80-85% humidity during growing season",
+                " Plant during monsoon season for best results"
             ],
             'wheat': [
-                "🌾 Plant in well-drained soil",
-                "❄️ Requires cool weather during growth",
-                "☀️ Needs full sunlight exposure",
-                "💧 Moderate water requirements"
+                " Plant in well-drained soil",
+                " Requires cool weather during growth",
+                " Needs full sunlight exposure",
+                " Moderate water requirements"
             ],
             'cotton': [
-                "🌡️ Requires warm weather (21-30°C)",
-                "☀️ Needs plenty of sunlight",
-                "💧 Deep, well-drained soil preferred",
-                "🐛 Regular pest monitoring essential"
+                " Requires warm weather (21-30 degC)",
+                " Needs plenty of sunlight",
+                " Deep, well-drained soil preferred",
+                " Regular pest monitoring essential"
             ],
             'maize': [
-                "🌽 Plant after last frost date",
-                "💧 Regular watering needed",
-                "🌱 Requires nitrogen-rich soil",
-                "☀️ Full sun exposure essential"
+                " Plant after last frost date",
+                " Regular watering needed",
+                " Requires nitrogen-rich soil",
+                " Full sun exposure essential"
             ],
             'sugarcane': [
-                "🌡️ Thrives in hot, humid climate",
-                "💧 High water requirement",
-                "🌱 Rich, well-drained soil needed",
-                "⏰ Long growing season (10-18 months)"
+                " Thrives in hot, humid climate",
+                " High water requirement",
+                " Rich, well-drained soil needed",
+                " Long growing season (10-18 months)"
+            ],
+            'wheat': [
+                " Plant in well-drained, fertile soil (pH 6.0-7.5)",
+                " Sow seeds 2-3 cm deep with 20-25 cm row spacing",
+                " Apply nitrogen in split doses at sowing and tillering",
+                " Irrigate at crown root, tillering, jointing, and flowering stages",
+                " Monitor for rust and aphids in cool weather",
+                " Harvest when grain is hard and moisture below 14%"
+            ],
+            'barley': [
+                " Plant in well-drained soil (pH 6.0-8.0)",
+                " Sow seeds 2-4 cm deep with 18-22 cm row spacing",
+                " More drought-tolerant than wheat - avoid overwatering",
+                " Apply balanced NPK fertilizer at sowing",
+                " Monitor for net blotch and powdery mildew",
+                " Harvest when kernels are firm and golden brown"
             ]
         }
         
@@ -293,40 +309,40 @@ class CropRecommendationSystem:
             tips.extend(crop_tips[crop])
         else:
             tips.extend([
-                f"🌱 {crop.title()} is recommended for your conditions",
-                "📚 Research specific growing requirements",
-                "🌡️ Monitor temperature and humidity regularly",
-                "💧 Ensure proper irrigation"
+                f" {crop.title()} is recommended for your conditions",
+                " Research specific growing requirements",
+                " Monitor temperature and humidity regularly",
+                " Ensure proper irrigation"
             ])
         
         # Condition-specific tips
         if input_data.temperature > 30:
-            tips.append("🌡️ High temperature - ensure adequate shade/cooling")
+            tips.append(" High temperature - ensure adequate shade/cooling")
         elif input_data.temperature < 15:
-            tips.append("❄️ Low temperature - consider greenhouse cultivation")
+            tips.append(" Low temperature - consider greenhouse cultivation")
         
         if input_data.humidity > 85:
-            tips.append("💧 High humidity - watch for fungal diseases")
+            tips.append(" High humidity - watch for fungal diseases")
         elif input_data.humidity < 50:
-            tips.append("🏜️ Low humidity - increase irrigation frequency")
+            tips.append(" Low humidity - increase irrigation frequency")
         
         if input_data.ph < 6.0:
-            tips.append("🧪 Acidic soil - consider lime application")
+            tips.append(" Acidic soil - consider lime application")
         elif input_data.ph > 8.0:
-            tips.append("🧪 Alkaline soil - may need sulfur amendment")
+            tips.append(" Alkaline soil - may need sulfur amendment")
         
         if input_data.rainfall > 300:
-            tips.append("🌧️ High rainfall - ensure proper drainage")
+            tips.append(" High rainfall - ensure proper drainage")
         elif input_data.rainfall < 50:
-            tips.append("🏜️ Low rainfall - irrigation system essential")
+            tips.append(" Low rainfall - irrigation system essential")
         
         # Nutrient tips
         if input_data.N < 30:
-            tips.append("🌱 Low nitrogen - consider nitrogen fertilizer")
+            tips.append(" Low nitrogen - consider nitrogen fertilizer")
         if input_data.P < 20:
-            tips.append("🌱 Low phosphorus - add phosphate fertilizer")
+            tips.append(" Low phosphorus - add phosphate fertilizer")
         if input_data.K < 20:
-            tips.append("🌱 Low potassium - potash application recommended")
+            tips.append(" Low potassium - potash application recommended")
         
         return tips
     
@@ -368,7 +384,7 @@ class CropRecommendationSystem:
             return unique_similar
             
         except Exception as e:
-            print(f"❌ Error finding similar conditions: {e}")
+            print(f"[NO] Error finding similar conditions: {e}")
             return []
     
     def save_model(self, filepath='crop_recommendation_model.pkl'):
@@ -386,7 +402,7 @@ class CropRecommendationSystem:
         
         with open(filepath, 'wb') as f:
             pickle.dump(model_data, f)
-        print(f"✅ Model saved to {filepath}")
+        print(f"[YES] Model saved to {filepath}")
     
     def load_model(self, filepath='crop_recommendation_model.pkl'):
         """Load a pre-trained model"""
@@ -401,10 +417,10 @@ class CropRecommendationSystem:
                 self.feature_names = model_data['feature_names']
                 self.crop_names = model_data['crop_names']
                 
-                print(f"✅ Model loaded from {filepath}")
+                print(f"[YES] Model loaded from {filepath}")
                 return True
             except Exception as e:
-                print(f"❌ Error loading model: {e}")
+                print(f"[NO] Error loading model: {e}")
                 return False
         return False
 
@@ -416,12 +432,12 @@ crop_system = CropRecommendationSystem()
 async def startup_event():
     """Initialize model on startup"""
     if not crop_system.load_model():
-        print("🔄 Training new model...")
+        print("[RETRAIN] Training new model...")
         try:
             crop_system.train_model('random_forest')
             crop_system.save_model()
         except Exception as e:
-            print(f"❌ Error during training: {e}")
+            print(f"[NO] Error during training: {e}")
 
 # API Endpoints
 @app.post("/predict", response_model=PredictionResponse)
@@ -438,7 +454,7 @@ async def predict_crop(input_data: CropInput):
     - **rainfall**: Rainfall in mm (0-500)
     """
     try:
-        print("✅ /predict endpoint called for crop recommendation")
+        print("[YES] /predict endpoint called for crop recommendation")
         
         # Make prediction
         result = crop_system.predict_crop(input_data)
@@ -467,7 +483,7 @@ async def retrain_model(request: RetrainRequest):
     - **model_type**: Choose from 'random_forest', 'naive_bayes', or 'svm'
     """
     try:
-        print(f"🔄 Retraining model with {request.model_type}...")
+        print(f"[RETRAIN] Retraining model with {request.model_type}...")
         accuracy = crop_system.train_model(request.model_type)
         crop_system.save_model()
         
@@ -571,16 +587,16 @@ async def root():
     }
 
 if __name__ == '__main__':
-    print("🚀 Starting FastAPI Crop Recommendation System...")
-    print("📊 Using Crop_recommendation copy.csv dataset")
-    print("🌱 Feature names:", crop_system.feature_names)
-    print("🌾 Available crops will be loaded from dataset")
-    print("🤖 Model: Random Forest (default)")
-    print("🔗 API Documentation available at: http://localhost:8000/docs")
-    print("📚 Alternative docs at: http://localhost:8000/redoc")
+    print(" Starting FastAPI Crop Recommendation System...")
+    print("[DATA] Using Crop_recommendation copy.csv dataset")
+    print(" Feature names:", crop_system.feature_names)
+    print("[WHEAT] Available crops will be loaded from dataset")
+    print(" Model: Random Forest (default)")
+    print(" API Documentation available at: http://localhost:8000/docs")
+    print(" Alternative docs at: http://localhost:8000/redoc")
     
     uvicorn.run(
-        "main:app",
+        "crop_recommendataion_knn:app",
         host="0.0.0.0",
         port=5003,
         reload=True,

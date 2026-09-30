@@ -1,15 +1,13 @@
-
-
 import React, { useState } from "react";
 import axios from "axios";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import "../styles/PestForm.css";
+
 export default function PestForm() {
   const [form, setForm] = useState({
     temp_avg: 26,
     humidity: 81,
     rainfall_mm: 242,
-    crop_type: "rice",
+    crop_type: "Tomato",
     growth_stage: "Vegetative",
     prev_pest_incidence: 0.1
   });
@@ -24,11 +22,14 @@ export default function PestForm() {
   const submit = async () => {
     setLoading(true);
     setError(null);
-    
+    setResult(null);
     try {
-      // Fixed: Use correct backend URL and endpoint
       const { data } = await axios.post("http://localhost:5000/api/pest-alert/pest-risk", form);
-      setResult(data);
+      if (data && data.error) {
+        setError(data.error);
+      } else {
+        setResult(data);
+      }
     } catch (err) {
       console.error(err);
       setError(err.response?.data?.error || "Failed to get prediction");
@@ -38,83 +39,63 @@ export default function PestForm() {
   };
 
   return (
-      <>
-          <Navbar />
-    <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
-      <h2>Pest Risk Prediction</h2>
-      
-      {Object.keys(form).map(key => (
-        <div key={key} style={{ marginBottom: '10px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>
-            {key.replace('_', ' ').toUpperCase()}:
-          </label>
-          {key === 'crop_type' ? (
-            <select 
-              name={key} 
-              value={form[key]} 
-              onChange={handleChange}
-              style={{ width: '100%', padding: '8px' }}
-            >
-              <option value="Tomato">Tomato</option>
-              <option value="Rice">Rice</option>
-              <option value="Wheat">Wheat</option>
-              <option value="Corn">Corn</option>
-            </select>
-          ) : key === 'growth_stage' ? (
-            <select 
-              name={key} 
-              value={form[key]} 
-              onChange={handleChange}
-              style={{ width: '100%', padding: '8px' }}
-            >
-              <option value="Seedling">Seedling</option>
-              <option value="Vegetative">Vegetative</option>
-              <option value="Flowering">Flowering</option>
-              <option value="Fruiting">Fruiting</option>
-            </select>
-          ) : (
-            <input 
-              name={key} 
-              value={form[key]} 
-              onChange={handleChange}
-              type="number"
-              step="0.1"
-              style={{ width: '100%', padding: '8px' }}
-            />
-          )}
+    <>
+      <div className="pest-form-page">
+        <h1>Pest Risk Prediction</h1>
+        <p>Analyze pest risk for your crops</p>
+        <div className="pest-form-card">
+          <h2>Enter Crop Parameters</h2>
+          <form onSubmit={(e) => { e.preventDefault(); submit(); }}>
+            {Object.keys(form).map(key => (
+              <div key={key}>
+                <label>{key.replace('_', ' ').toUpperCase()}:</label>
+                {key === 'crop_type' ? (
+                  <select name={key} value={form[key]} onChange={handleChange}>
+                    <option value="Tomato">Tomato</option>
+                    <option value="Maize">Maize</option>
+                    <option value="Potato">Potato</option>
+                  </select>
+                ) : key === 'growth_stage' ? (
+                  <select name={key} value={form[key]} onChange={handleChange}>
+                    <option value="Seedling">Seedling</option>
+                    <option value="Vegetative">Vegetative</option>
+                    <option value="Flowering">Flowering</option>
+                    <option value="Fruiting">Fruiting</option>
+                  </select>
+                ) : (
+                  <input
+                    name={key}
+                    value={form[key]}
+                    onChange={handleChange}
+                    type="number"
+                    step="0.1"
+                    min={key === 'temp_avg' ? '-50' : '0'}
+                    max={key === 'temp_avg' ? '50' : key === 'humidity' ? '100' : key === 'rainfall_mm' ? '500' : key === 'prev_pest_incidence' ? '1' : undefined}
+                    required
+                  />
+                )}
+              </div>
+            ))}
+            <button type="submit" className="btn btn-primary" disabled={loading}>
+              {loading ? 'Predicting...' : 'Predict Risk'}
+            </button>
+          </form>
         </div>
-      ))}
-      
-      <button 
-        onClick={submit}
-        disabled={loading}
-        style={{
-          width: '100%',
-          padding: '10px',
-          backgroundColor: loading ? '#ccc' : '#007bff',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: loading ? 'not-allowed' : 'pointer'
-        }}
-      >
-        {loading ? 'Predicting...' : 'Predict Risk'}
-      </button>
-      
-      {error && (
-        <div style={{ color: 'red', marginTop: '10px' }}>
-          Error: {error}
-        </div>
-      )}
-      
-      {result && (
-        <div style={{ marginTop: '20px', padding: '10px', backgroundColor: '#f8f9fa', borderRadius: '4px' }}>
-          <h3>Prediction Result:</h3>
-    <p>Risk Level: <strong>{result.risk_level}</strong></p>
-        </div>
-      )}
-    </div>
-    <Footer />
+
+        {error && (
+          <div className="pest-result-card">
+            <p style={{ color: '#e74c3c' }}>Error: {error}</p>
+          </div>
+        )}
+
+        {result && (
+          <div className="pest-result-card">
+            <h2>Prediction Result</h2>
+            <h3>{result.risk_level}</h3>
+            <p>Risk assessment for your crops</p>
+          </div>
+        )}
+      </div>
     </>
   );
 }

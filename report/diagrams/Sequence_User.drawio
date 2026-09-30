@@ -1,0 +1,80 @@
+<mxfile host="app.diagrams.net" modified="2026-08-01T00:00:00.000Z" agent="opencode" version="24.0.0" type="device">
+  <diagram id="sequence-user" name="Sequence Diagram - User">
+    <mxGraphModel dx="1900" dy="1250" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1250" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="&lt;b&gt;SEQUENCE DIAGRAM - USER FLOWS (login + disease recognition)&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="520" y="20" width="860" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Lifeline heads -->
+        <mxCell id="ll_farmer" value="Farmer" style="shape=actor;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="35" y="90" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_login" value="LoginPage (React)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="205" y="90" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_auth" value="AuthController (Express)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="375" y="90" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_db1" value="Farmer DB (MongoDB)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="545" y="90" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_dis" value="DiseaseRecognition (React)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="745" y="90" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_disroute" value="DiseaseRoute (Express)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="915" y="90" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_disapi" value="Disease API (FastAPI :5004)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1085" y="90" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_med" value="Medicine/Product DB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1255" y="90" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_rec" value="Record DB (MongoDB)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1425" y="90" width="120" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Lifelines -->
+        <mxCell id="line_farmer" style="dashed=1;endArrow=none;html=1;strokeColor=#000000" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="95" y="145" as="sourcePoint"/><mxPoint x="95" y="1200" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="line_login" style="dashed=1;endArrow=none;html=1;strokeColor=#000000" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="265" y="145" as="sourcePoint"/><mxPoint x="265" y="1200" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="line_auth" style="dashed=1;endArrow=none;html=1;strokeColor=#000000" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="145" as="sourcePoint"/><mxPoint x="435" y="1200" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="line_db1" style="dashed=1;endArrow=none;html=1;strokeColor=#000000" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="605" y="145" as="sourcePoint"/><mxPoint x="605" y="1200" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="line_dis" style="dashed=1;endArrow=none;html=1;strokeColor=#000000" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="805" y="145" as="sourcePoint"/><mxPoint x="805" y="1200" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="line_disroute" style="dashed=1;endArrow=none;html=1;strokeColor=#000000" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="975" y="145" as="sourcePoint"/><mxPoint x="975" y="1200" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="line_disapi" style="dashed=1;endArrow=none;html=1;strokeColor=#000000" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1145" y="145" as="sourcePoint"/><mxPoint x="1145" y="1200" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="line_med" style="dashed=1;endArrow=none;html=1;strokeColor=#000000" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1315" y="145" as="sourcePoint"/><mxPoint x="1315" y="1200" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="line_rec" style="dashed=1;endArrow=none;html=1;strokeColor=#000000" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1485" y="145" as="sourcePoint"/><mxPoint x="1485" y="1200" as="targetPoint"/></mxGeometry></mxCell>
+
+        <!-- Messages: login -->
+        <mxCell id="m1" value="1: enter email + password" style="endArrow=block;html=1;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="95" y="180" as="sourcePoint"/><mxPoint x="265" y="180" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m2" value="2: POST /api/auth/login" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="265" y="230" as="sourcePoint"/><mxPoint x="435" y="230" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m3" value="3: findOne({email}) + comparePassword()" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="280" as="sourcePoint"/><mxPoint x="605" y="280" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m4" value="4: user record (role, permissions)" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="605" y="330" as="sourcePoint"/><mxPoint x="435" y="330" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m5" value="5: {token, user} (JWT)" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="435" y="380" as="sourcePoint"/><mxPoint x="265" y="380" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m6" value="6: redirect to /dashboard" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="265" y="430" as="sourcePoint"/><mxPoint x="95" y="430" as="targetPoint"/></mxGeometry></mxCell>
+
+        <!-- Disease fragment -->
+        <mxCell id="frag2" value="alt [recognized / unrecognized disease]" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;verticalAlign=top;fontSize=12;fontStyle=3" vertex="1" parent="1">
+          <mxGeometry x="750" y="630" width="690" height="540" as="geometry" />
+        </mxCell>
+
+        <!-- Messages: disease recognition -->
+        <mxCell id="m7" value="7: upload leaf image" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="95" y="680" as="sourcePoint"/><mxPoint x="805" y="680" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m8" value="8: POST /api/disease/predict (multipart)" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="805" y="730" as="sourcePoint"/><mxPoint x="975" y="730" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m9" value="9: forward image bytes to FastAPI :5004" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="975" y="780" as="sourcePoint"/><mxPoint x="1145" y="780" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m10" value="10: {top3, confidence, cause, cure}" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1145" y="830" as="sourcePoint"/><mxPoint x="975" y="830" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m11" value="11: lookup medicines + matching shop products" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="975" y="880" as="sourcePoint"/><mxPoint x="1315" y="880" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m12" value="12: medicines[]" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1315" y="930" as="sourcePoint"/><mxPoint x="975" y="930" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m13" value="13: save disease record" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="975" y="980" as="sourcePoint"/><mxPoint x="1485" y="980" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m14" value="14: saved (recordId)" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1485" y="1030" as="sourcePoint"/><mxPoint x="975" y="1030" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m15" value="15: full result + medicine suggestions" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="975" y="1080" as="sourcePoint"/><mxPoint x="805" y="1080" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="m16" value="16: display diagnosis + suggested medicines" style="endArrow=block;html=1;fontSize=11" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="805" y="1130" as="sourcePoint"/><mxPoint x="95" y="1130" as="targetPoint"/></mxGeometry></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

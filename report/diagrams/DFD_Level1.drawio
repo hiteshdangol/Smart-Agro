@@ -1,0 +1,297 @@
+<mxfile host="app.diagrams.net" modified="2026-08-01T00:00:00.000Z" agent="opencode" version="24.0.0" type="device">
+  <diagram id="dfd-level1" name="DFD Level 1">
+    <mxGraphModel dx="1600" dy="1250" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1250" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="&lt;b&gt;DFD LEVEL 1 - SMART AGRO SYSTEM (process breakdown)&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="20" width="640" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- External entities -->
+        <mxCell id="farmer" value="&lt;b&gt;FARMER&lt;/b&gt;" style="shape=doubleRectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="admin" value="&lt;b&gt;ADMIN&lt;/b&gt;" style="shape=doubleRectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="40" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="esewa" value="&lt;b&gt;ESEWA&lt;br&gt;GATEWAY&lt;/b&gt;" style="shape=doubleRectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1380" y="620" width="130" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ML services -->
+        <mxCell id="mlPest" value="&lt;b&gt;ML Pest&lt;/b&gt;&lt;br&gt;FastAPI :5002" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1400" y="90" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="mlCrop" value="&lt;b&gt;ML Crop&lt;/b&gt;&lt;br&gt;FastAPI :5003" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1400" y="260" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="mlDisease" value="&lt;b&gt;ML Disease&lt;/b&gt;&lt;br&gt;FastAPI :5004" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1400" y="430" width="120" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Processes column 1 -->
+        <mxCell id="p11" value="&lt;b&gt;1.1&lt;/b&gt;&lt;br&gt;Authentication&lt;br&gt;&amp;amp; Profile" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="420" y="90" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p13" value="&lt;b&gt;1.2&lt;/b&gt;&lt;br&gt;Crop Record&lt;br&gt;Management" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="420" y="230" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p14" value="&lt;b&gt;1.3&lt;/b&gt;&lt;br&gt;Pest Risk&lt;br&gt;Prediction" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="420" y="370" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p15" value="&lt;b&gt;1.4&lt;/b&gt;&lt;br&gt;Crop&lt;br&gt;Recommendation" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="420" y="510" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p16" value="&lt;b&gt;1.5&lt;/b&gt;&lt;br&gt;Disease&lt;br&gt;Recognition" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="420" y="650" width="170" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Processes column 2 -->
+        <mxCell id="p17" value="&lt;b&gt;1.6&lt;/b&gt;&lt;br&gt;Marketplace&lt;br&gt;&amp;amp; Cart" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="880" y="90" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p18" value="&lt;b&gt;1.7&lt;/b&gt;&lt;br&gt;Order &amp;amp;&lt;br&gt;Payment" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="880" y="240" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p19" value="&lt;b&gt;1.8&lt;/b&gt;&lt;br&gt;Admin&lt;br&gt;Management" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="880" y="400" width="170" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Data stores -->
+        <mxCell id="d1" value="&lt;b&gt;D1&lt;/b&gt;&lt;br&gt;Farmers" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="420" y="1000" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" value="&lt;b&gt;D2&lt;/b&gt;&lt;br&gt;Records" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="580" y="1000" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d3" value="&lt;b&gt;D3&lt;/b&gt;&lt;br&gt;Products" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="740" y="1000" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d4" value="&lt;b&gt;D4&lt;/b&gt;&lt;br&gt;Orders" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="900" y="1000" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d5" value="&lt;b&gt;D5&lt;/b&gt;&lt;br&gt;Medicines" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1060" y="1000" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d6" value="&lt;b&gt;D6&lt;/b&gt;&lt;br&gt;Roles" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1220" y="1000" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d7" value="&lt;b&gt;D7&lt;/b&gt;&lt;br&gt;Pest Alerts" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="420" y="1090" width="130" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Farmer flows -->
+        <mxCell id="ef_farmer_auth" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="farmer" target="p11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_farmer_auth" value="credentials" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_farmer_auth">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="-20" y="-8" /></mxGeometry>
+        </mxCell>
+        <mxCell id="ef_auth_farmer" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11;exitX=1;exitY=0.5" edge="1" parent="1" source="p11" target="farmer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_auth_farmer" value="JWT + profile" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_auth_farmer">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="40" y="-8" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="ef_farmer_crop" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="farmer" target="p13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_farmer_crop" value="crop record" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_farmer_crop">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="-40" y="-8" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="ef_farmer_pest" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="farmer" target="p14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_farmer_pest" value="pest inputs (6 features)" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_farmer_pest">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="-80" y="-8" /></mxGeometry>
+        </mxCell>
+        <mxCell id="ef_pest_farmer" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11;exitX=1;exitY=0.5" edge="1" parent="1" source="p14" target="farmer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_pest_farmer" value="risk level" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_pest_farmer">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="30" y="-8" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="ef_farmer_croprec" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="farmer" target="p15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_farmer_croprec" value="soil &amp; climate params" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_farmer_croprec">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="-70" y="-8" /></mxGeometry>
+        </mxCell>
+        <mxCell id="ef_croprec_farmer" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11;exitX=1;exitY=0.5" edge="1" parent="1" source="p15" target="farmer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_croprec_farmer" value="recommendation + tips" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_croprec_farmer">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="30" y="-8" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="ef_farmer_dis" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="farmer" target="p16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_farmer_dis" value="leaf image" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_farmer_dis">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="-30" y="-8" /></mxGeometry>
+        </mxCell>
+        <mxCell id="ef_dis_farmer" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11;exitX=1;exitY=0.5" edge="1" parent="1" source="p16" target="farmer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_dis_farmer" value="diagnosis + cure + medicines" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_dis_farmer">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="30" y="-8" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="ef_farmer_shop" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="farmer" target="p17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_farmer_shop" value="browse / add to cart" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_farmer_shop">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="-70" y="-8" /></mxGeometry>
+        </mxCell>
+        <mxCell id="ef_shop_farmer" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11;exitX=1;exitY=0.5" edge="1" parent="1" source="p17" target="farmer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_shop_farmer" value="catalog / cart status" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_shop_farmer">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="40" y="-8" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="ef_order_farmer" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11;exitX=1;exitY=0.5" edge="1" parent="1" source="p18" target="farmer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_order_farmer" value="order status" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_order_farmer">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="30" y="-8" /></mxGeometry>
+        </mxCell>
+
+        <!-- Admin flows -->
+        <mxCell id="ef_admin_man" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="admin" target="p19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_admin_man" value="manage request" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_admin_man">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="-70" y="-8" /></mxGeometry>
+        </mxCell>
+        <mxCell id="ef_man_admin" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11;exitX=1;exitY=0.5" edge="1" parent="1" source="p19" target="admin">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_man_admin" value="lists / status" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_man_admin">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="30" y="-8" /></mxGeometry>
+        </mxCell>
+
+        <!-- ML flows -->
+        <mxCell id="ef_pest_ml" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p14" target="mlPest">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_pest_ml" value="features" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_pest_ml">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="-20" y="-8" /></mxGeometry>
+        </mxCell>
+        <mxCell id="ef_ml_pest" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11;exitX=1;exitY=0.5" edge="1" parent="1" source="mlPest" target="p14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_ml_pest" value="risk level" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_ml_pest">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="30" y="-8" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="ef_crop_ml" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p15" target="mlCrop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_crop_ml" value="7 params" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_crop_ml">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="-20" y="-8" /></mxGeometry>
+        </mxCell>
+        <mxCell id="ef_ml_crop" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11;exitX=1;exitY=0.5" edge="1" parent="1" source="mlCrop" target="p15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_ml_crop" value="crop + confidence" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_ml_crop">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="30" y="-8" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="ef_dis_ml" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p16" target="mlDisease">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_dis_ml" value="image bytes" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_dis_ml">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="-20" y="-8" /></mxGeometry>
+        </mxCell>
+        <mxCell id="ef_ml_dis" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11;exitX=1;exitY=0.5" edge="1" parent="1" source="mlDisease" target="p16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_ml_dis" value="top3 + confidence" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_ml_dis">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="30" y="-8" /></mxGeometry>
+        </mxCell>
+
+        <!-- eSewa flows -->
+        <mxCell id="ef_ord_esewa" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p18" target="esewa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_ord_esewa" value="initiate (pidx)" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_ord_esewa">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="-20" y="-8" /></mxGeometry>
+        </mxCell>
+        <mxCell id="ef_esewa_ord" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11;exitX=1;exitY=0.5" edge="1" parent="1" source="esewa" target="p18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_esewa_ord" value="payment status" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="ef_esewa_ord">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="30" y="-8" /></mxGeometry>
+        </mxCell>
+
+        <!-- store access flows -->
+        <mxCell id="e_auth_d1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p11" target="d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_auth_d6" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p11" target="d6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_crop_d2" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p13" target="d2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pest_d7" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p14" target="d7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pest_d2" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p14" target="d2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_croprec_d2" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p15" target="d2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_dis_d5" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p16" target="d5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_dis_d2" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p16" target="d2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_shop_d3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p17" target="d3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ord_d4" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p18" target="d4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ord_d3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p18" target="d3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_man_d1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p19" target="d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_man_d3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p19" target="d3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_man_d4" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p19" target="d4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_man_d5" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p19" target="d5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_man_d6" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p19" target="d6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- process inter-connect -->
+        <mxCell id="e_cart_order" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1.5;fontSize=11" edge="1" parent="1" source="p17" target="p18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lf_cart_order" value="checkout data" style="edgeLabel;html=1;fontSize=11" vertex="1" connectable="0" parent="e_cart_order">
+          <mxGeometry x="-0.5" relative="1" as="geometry"><mxPoint as="offset" x="0" y="-8" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="legend" value="&lt;b&gt;NOTATION&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;&amp;#9678;  Process (numbered 1.x)&lt;br&gt;&amp;#9632;  External Entity&lt;br&gt;&amp;#9645;  Data Store (D1..D7)&lt;br&gt;&amp;#8594;  Data Flow" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="880" y="760" width="300" height="110" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
