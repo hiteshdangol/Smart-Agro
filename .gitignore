@@ -1,3 +1,6 @@
+# Dependencies
+node_modules/
+pythonmodel/.venv/
 
 # Large ML model files
 Plant-Disease-Recognition-System-main/models/extracted_model/model.weights.h5
