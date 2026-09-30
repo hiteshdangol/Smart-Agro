@@ -1,0 +1,4 @@
+
+# Large ML model files
+Plant-Disease-Recognition-System-main/models/extracted_model/model.weights.h5
+Plant-Disease-Recognition-System-main/models/plant_disease_recog_model_pwp.keras
