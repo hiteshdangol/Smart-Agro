@@ -206,7 +206,7 @@ CSV exports of MongoDB collections are included for reference:
   Replace these with portable invocations — e.g. `.venv/Scripts/uvicorn` on
   Windows, `.venv/bin/uvicorn` on macOS/Linux — before running on another
   machine.
-- **`report/` is roughly 55 MB** of documentation artifacts (`.drawio` sources,
+- **`report/` is roughly 64 MB** of documentation artifacts (`.drawio` sources,
   rendered PNGs, generated `.docx` and `.pdf`). It is not needed to run the
   application; consider `git rm -r --cached report` if you want a leaner clone.
 - **`__pycache__` directories are committed** under `pythonmodel/` and `report/`.
